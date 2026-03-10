@@ -1,0 +1,1227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SwadeshiAI — Building India's AI Infrastructure</title>
+  <meta name="description" content="SwadeshiAI Private Limited is building India's indigenous AI infrastructure — multi-agent systems, autonomous AI workflows, and developer tools designed and developed in India.">
+  <meta property="og:title" content="SwadeshiAI — Building India's AI Infrastructure">
+  <meta property="og:description" content="Developing advanced AI systems, agent ecosystems, and intelligent platforms for the next generation of software.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.swadeshi.dev">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* =====================
+       Design Tokens
+    ===================== */
+    :root {
+      --bg:           #0D0D0D;
+      --bg-2:         #111111;
+      --bg-3:         #181818;
+      --text:         #F5F5F5;
+      --text-muted:   #888888;
+      --text-dim:     #444444;
+      --saffron:      #FF9933;
+      --saffron-lt:   #FFB566;
+      --saffron-glow: rgba(255,153,51,0.15);
+      --emerald:      #10B981;
+      --emerald-lt:   #34D399;
+      --emerald-glow: rgba(16,185,129,0.15);
+      --border:       rgba(255,255,255,0.06);
+      --border-hl:    rgba(255,153,51,0.28);
+      --radius:       12px;
+      --radius-lg:    20px;
+    }
+
+    /* =====================
+       Reset & Base
+    ===================== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    a { text-decoration: none; }
+    img { max-width: 100%; display: block; }
+
+    /* =====================
+       Typography helpers
+    ===================== */
+    .section-label {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 2.5px;
+      color: var(--saffron);
+      margin-bottom: 14px;
+    }
+    .section-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(30px, 4vw, 50px);
+      font-weight: 700;
+      line-height: 1.1;
+      letter-spacing: -1px;
+      color: var(--text);
+      margin-bottom: 18px;
+    }
+    .section-sub {
+      font-size: 16px;
+      color: var(--text-muted);
+      line-height: 1.75;
+      max-width: 560px;
+    }
+
+    /* =====================
+       Layout
+    ===================== */
+    .container { max-width: 1180px; margin: 0 auto; }
+    section { padding: 96px 40px; }
+
+    /* =====================
+       Navigation
+    ===================== */
+    #navbar {
+      position: fixed;
+      inset: 0 0 auto 0;
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 40px;
+      background: rgba(13,13,13,0.75);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+      transition: background 0.35s ease;
+    }
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .nav-logo-mark {
+      width: 34px; height: 34px;
+      background: linear-gradient(135deg, var(--saffron), var(--emerald));
+      border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 800; font-size: 15px; color: #0D0D0D;
+      flex-shrink: 0;
+    }
+    .nav-logo-text {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700; font-size: 17px; color: var(--text);
+    }
+    .nav-logo-text em { color: var(--saffron); font-style: normal; }
+    .nav-links {
+      display: flex; align-items: center; gap: 28px; list-style: none;
+    }
+    .nav-links a {
+      color: var(--text-muted); font-size: 13.5px; font-weight: 500;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--text); }
+    .nav-cta {
+      padding: 8px 18px;
+      background: var(--saffron);
+      color: #0D0D0D !important;
+      border-radius: 7px;
+      font-weight: 600 !important;
+      transition: background 0.2s, box-shadow 0.2s !important;
+    }
+    .nav-cta:hover {
+      background: var(--saffron-lt) !important;
+      box-shadow: 0 0 22px rgba(255,153,51,0.4);
+    }
+
+    /* =====================
+       Buttons
+    ===================== */
+    .btn-primary {
+      display: inline-block;
+      padding: 13px 30px;
+      background: linear-gradient(135deg, var(--saffron), #FF6A00);
+      color: #0D0D0D;
+      border: none; border-radius: 8px;
+      font-size: 14.5px; font-weight: 600;
+      cursor: pointer; transition: transform 0.25s, box-shadow 0.25s;
+      box-shadow: 0 0 28px rgba(255,153,51,0.25);
+      font-family: 'Inter', sans-serif;
+    }
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 0 46px rgba(255,153,51,0.45);
+    }
+    .btn-secondary {
+      display: inline-block;
+      padding: 13px 30px;
+      background: transparent;
+      color: var(--text);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      font-size: 14.5px; font-weight: 500;
+      cursor: pointer; transition: border-color 0.25s, background 0.25s;
+    }
+    .btn-secondary:hover {
+      border-color: rgba(255,255,255,0.18);
+      background: rgba(255,255,255,0.04);
+    }
+
+    /* =====================
+       Hero
+    ===================== */
+    #hero {
+      position: relative; min-height: 100vh;
+      display: flex; align-items: center; justify-content: center;
+      overflow: hidden; padding: 120px 40px 80px;
+    }
+    #neural-canvas {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%; opacity: 0.5;
+    }
+    .hero-inner {
+      position: relative; z-index: 2;
+      text-align: center; max-width: 860px;
+    }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 5px 16px;
+      background: rgba(255,153,51,0.08);
+      border: 1px solid rgba(255,153,51,0.22);
+      border-radius: 100px;
+      font-size: 11px; font-weight: 700;
+      color: var(--saffron); text-transform: uppercase; letter-spacing: 1.8px;
+      margin-bottom: 30px;
+    }
+    .hero-badge span {
+      width: 6px; height: 6px; background: var(--saffron);
+      border-radius: 50%; animation: blink 2s ease-in-out infinite;
+    }
+    @keyframes blink {
+      0%,100% { opacity:1; transform:scale(1); }
+      50%      { opacity:0.4; transform:scale(1.6); }
+    }
+    .hero-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(44px, 7.5vw, 90px);
+      font-weight: 700; line-height: 1.04; letter-spacing: -2.5px;
+      margin-bottom: 22px;
+      background: linear-gradient(160deg, #F5F5F5 30%, #999999 100%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero-title .accent-s {
+      background: linear-gradient(135deg, var(--saffron), #FF5500);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero-sub {
+      font-size: clamp(15px, 1.8vw, 19px);
+      color: var(--text-muted); max-width: 620px;
+      margin: 0 auto 44px; line-height: 1.75;
+    }
+    .hero-actions { display: flex; align-items: center; justify-content: center; gap: 14px; flex-wrap: wrap; }
+
+    .hero-stats {
+      display: flex; align-items: center; justify-content: center;
+      gap: 48px; flex-wrap: wrap;
+      margin-top: 72px; padding-top: 44px;
+      border-top: 1px solid var(--border);
+    }
+    .stat-val {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 30px; font-weight: 700; color: var(--text);
+      display: block;
+    }
+    .stat-lbl { font-size: 12px; color: var(--text-muted); margin-top: 3px; }
+
+    /* =====================
+       Vision
+    ===================== */
+    #vision { background: var(--bg-2); }
+    .vision-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 72px; align-items: center;
+    }
+    .pillars { display: flex; flex-direction: column; gap: 16px; margin-top: 40px; }
+    .pillar {
+      display: flex; align-items: flex-start; gap: 14px;
+      padding: 20px 22px;
+      background: var(--bg-3); border: 1px solid var(--border); border-radius: var(--radius);
+      transition: border-color 0.3s, box-shadow 0.3s;
+    }
+    .pillar:hover { border-color: var(--border-hl); box-shadow: 0 0 28px rgba(255,153,51,0.05); }
+    .pillar-ico {
+      width: 38px; height: 38px; border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 17px; flex-shrink: 0;
+    }
+    .ico-s { background: rgba(255,153,51,0.1); }
+    .ico-e { background: rgba(16,185,129,0.1); }
+    .pillar-ttl { font-family: 'Space Grotesk', sans-serif; font-size: 15px; font-weight: 600; color: var(--text); margin-bottom: 4px; }
+    .pillar-dsc { font-size: 13px; color: var(--text-muted); line-height: 1.6; }
+
+    /* Orb visual */
+    .vision-orb-wrap { display: flex; align-items: center; justify-content: center; }
+    .vision-orb {
+      width: 380px; height: 380px; border-radius: 50%; position: relative;
+      background: radial-gradient(circle at 42% 42%,
+        rgba(255,153,51,0.12) 0%, rgba(16,185,129,0.09) 50%, transparent 72%);
+      display: flex; align-items: center; justify-content: center;
+    }
+    .vision-orb::before {
+      content: ''; position: absolute; inset: 18px; border-radius: 50%;
+      border: 1px solid rgba(255,153,51,0.14);
+      animation: spin 22s linear infinite;
+    }
+    .vision-orb::after {
+      content: ''; position: absolute; inset: 60px; border-radius: 50%;
+      border: 1px solid rgba(16,185,129,0.1);
+      animation: spin 16s linear infinite reverse;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .orb-core {
+      width: 110px; height: 110px; border-radius: 50%; z-index: 1;
+      background: radial-gradient(circle, rgba(255,153,51,0.28) 0%, transparent 70%);
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 13px; font-weight: 600; color: var(--saffron); text-align: center;
+    }
+
+    /* =====================
+       Technology
+    ===================== */
+    .tech-grid {
+      display: grid; grid-template-columns: repeat(3,1fr);
+      gap: 18px; margin-top: 56px;
+    }
+    .tech-card {
+      padding: 28px 28px 24px;
+      background: var(--bg-2); border: 1px solid var(--border); border-radius: var(--radius-lg);
+      position: relative; overflow: hidden; transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
+    }
+    .tech-card::after {
+      content: ''; position: absolute; inset: 0 0 auto 0; height: 1px;
+      background: linear-gradient(90deg, transparent, var(--saffron), transparent);
+      opacity: 0; transition: opacity 0.3s;
+    }
+    .tech-card:hover::after { opacity: 1; }
+    .tech-card:hover { transform: translateY(-4px); border-color: rgba(255,153,51,0.16); box-shadow: 0 18px 52px rgba(0,0,0,0.45); }
+    .card-ico {
+      width: 46px; height: 46px; border-radius: 10px;
+      background: rgba(255,153,51,0.08);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 21px; margin-bottom: 18px;
+    }
+    .card-ico.e-bg { background: rgba(16,185,129,0.08); }
+    .card-ttl { font-family: 'Space Grotesk', sans-serif; font-size: 17px; font-weight: 600; color: var(--text); margin-bottom: 10px; }
+    .card-dsc { font-size: 13.5px; color: var(--text-muted); line-height: 1.68; }
+    .card-tag {
+      display: inline-block; margin-top: 16px;
+      padding: 3px 9px;
+      background: rgba(255,153,51,0.08); border: 1px solid rgba(255,153,51,0.15);
+      border-radius: 4px; font-size: 10.5px; font-weight: 700;
+      color: var(--saffron); text-transform: uppercase; letter-spacing: 0.5px;
+    }
+
+    /* =====================
+       Products
+    ===================== */
+    #products { background: var(--bg-2); }
+    .products-hdr {
+      display: flex; align-items: flex-end; justify-content: space-between;
+      margin-bottom: 52px; flex-wrap: wrap; gap: 20px;
+    }
+    .products-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 20px; }
+    .prod-card {
+      padding: 36px; background: var(--bg-3); border: 1px solid var(--border);
+      border-radius: var(--radius-lg); transition: border-color 0.3s, box-shadow 0.3s;
+    }
+    .prod-card:hover { border-color: rgba(255,153,51,0.2); box-shadow: 0 0 56px rgba(255,153,51,0.06); }
+    .prod-card.featured {
+      grid-column: span 2; display: grid; grid-template-columns: 1fr 1fr; gap: 36px; align-items: center;
+      background: linear-gradient(135deg, rgba(255,153,51,0.04) 0%, rgba(16,185,129,0.04) 100%);
+      border-color: rgba(255,153,51,0.12);
+    }
+    .prod-status {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 3px 10px; border-radius: 100px;
+      font-size: 10.5px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px;
+      margin-bottom: 18px;
+    }
+    .prod-status::before { content:''; width:5px; height:5px; border-radius:50%; background:currentColor; }
+    .status-active { background: rgba(16,185,129,0.1); color: var(--emerald); border: 1px solid rgba(16,185,129,0.2); }
+    .status-soon   { background: rgba(255,153,51,0.1); color: var(--saffron); border: 1px solid rgba(255,153,51,0.2); }
+    .prod-name { font-family: 'Space Grotesk', sans-serif; font-size: 22px; font-weight: 700; color: var(--text); margin-bottom: 10px; }
+    .prod-dsc  { font-size: 13.5px; color: var(--text-muted); line-height: 1.7; margin-bottom: 22px; }
+    .prod-feats { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+    .prod-feats li { display:flex; align-items:center; gap:10px; font-size:13px; color:var(--text-muted); }
+    .prod-feats li::before { content:'→'; color:var(--saffron); font-size:11px; }
+    .prod-visual {
+      display: flex; align-items: center; justify-content: center; height: 190px;
+    }
+    .prod-visual-inner {
+      width: 150px; height: 150px; border-radius: 22px;
+      background: radial-gradient(circle at 50% 50%, rgba(255,153,51,0.18) 0%, transparent 72%);
+      border: 1px solid rgba(255,153,51,0.14);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 46px; animation: float 6s ease-in-out infinite;
+    }
+    @keyframes float { 0%,100% { transform:translateY(0); } 50% { transform:translateY(-12px); } }
+
+    /* =====================
+       Research
+    ===================== */
+    .research-grid {
+      display: grid; grid-template-columns: repeat(3,1fr);
+      gap: 18px; margin-top: 56px;
+    }
+    .research-item {
+      padding: 26px;
+      border: 1px solid var(--border); border-radius: var(--radius);
+      transition: border-color 0.3s, background 0.3s;
+    }
+    .research-item:hover { border-color: rgba(16,185,129,0.22); background: rgba(16,185,129,0.025); }
+    .r-num { font-family: 'Space Grotesk', sans-serif; font-size: 36px; font-weight: 700; color: var(--text-dim); line-height: 1; margin-bottom: 14px; }
+    .r-ttl { font-family: 'Space Grotesk', sans-serif; font-size: 15px; font-weight: 600; color: var(--text); margin-bottom: 8px; }
+    .r-dsc { font-size: 13px; color: var(--text-muted); line-height: 1.65; }
+
+    /* =====================
+       About
+    ===================== */
+    #about { background: var(--bg-2); }
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: center; }
+    .about-body p { font-size: 15.5px; color: var(--text-muted); line-height: 1.8; margin-bottom: 18px; }
+    .hi { color: var(--text); font-weight: 500; }
+    .about-vals { display: grid; grid-template-columns: repeat(2,1fr); gap: 14px; margin-top: 36px; }
+    .aval {
+      padding: 15px 16px;
+      background: var(--bg-3); border: 1px solid var(--border); border-radius: var(--radius);
+    }
+    .aval-ttl { font-size: 13.5px; font-weight: 600; color: var(--text); margin-bottom: 3px; }
+    .aval-dsc { font-size: 12px; color: var(--text-muted); }
+
+    .about-card {
+      padding: 36px; background: var(--bg-3); border: 1px solid var(--border);
+      border-radius: var(--radius-lg); text-align: center;
+    }
+    .about-card-flag { font-size: 56px; margin-bottom: 20px; }
+    .about-card-name { font-family: 'Space Grotesk', sans-serif; font-size: 18px; font-weight: 700; color: var(--text); margin-bottom: 8px; }
+    .about-card-sub  { font-size: 13px; color: var(--text-muted); line-height: 1.6; }
+    .about-card-stats {
+      margin-top: 22px; padding-top: 22px; border-top: 1px solid var(--border);
+      display: flex; justify-content: center; gap: 22px;
+    }
+    .acs { text-align: center; }
+    .acs-val { font-family: 'Space Grotesk', sans-serif; font-size: 22px; font-weight: 700; }
+    .acs-lbl { font-size: 11px; color: var(--text-muted); margin-top: 2px; }
+
+    /* =====================
+       Founder
+    ===================== */
+    .founder-wrap { max-width: 680px; margin: 56px auto 0; }
+    .founder-card {
+      padding: 44px;
+      background: var(--bg-2); border: 1px solid var(--border); border-radius: var(--radius-lg);
+      text-align: center; position: relative; overflow: hidden;
+    }
+    .founder-card::before {
+      content: ''; position: absolute; top: 0; left: 50%; transform: translateX(-50%);
+      width: 180px; height: 1px;
+      background: linear-gradient(90deg, transparent, var(--saffron), transparent);
+    }
+    .founder-avatar {
+      width: 76px; height: 76px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--saffron), var(--emerald));
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Space Grotesk', sans-serif; font-size: 26px; font-weight: 700; color: #0D0D0D;
+      margin: 0 auto 20px;
+    }
+    .founder-name  { font-family: 'Space Grotesk', sans-serif; font-size: 22px; font-weight: 700; color: var(--text); margin-bottom: 3px; }
+    .founder-role  { font-size: 13px; color: var(--saffron); font-weight: 500; margin-bottom: 22px; }
+    .founder-quote {
+      font-size: 15px; color: var(--text-muted); line-height: 1.8;
+      font-style: italic; max-width: 480px; margin: 0 auto;
+    }
+
+    /* =====================
+       Careers
+    ===================== */
+    #careers { background: var(--bg-2); }
+    .careers-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: start; }
+    .roles { display: flex; flex-direction: column; gap: 10px; margin-top: 28px; }
+    .role-row {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 14px 18px;
+      background: var(--bg-3); border: 1px solid var(--border); border-radius: var(--radius);
+      transition: border-color 0.3s, background 0.3s; cursor: pointer;
+      color: inherit;
+    }
+    .role-row:hover { border-color: rgba(255,153,51,0.22); background: rgba(255,153,51,0.025); }
+    .role-n { font-size: 14.5px; font-weight: 600; color: var(--text); margin-bottom: 2px; }
+    .role-t { font-size: 12px; color: var(--text-muted); }
+    .role-arr { color: var(--saffron); font-size: 17px; }
+
+    .careers-aside {
+      padding: 40px;
+      background: var(--bg-3); border: 1px solid var(--border); border-radius: var(--radius-lg);
+      text-align: center;
+    }
+    .careers-aside h3 { font-family: 'Space Grotesk', sans-serif; font-size: 24px; font-weight: 700; color: var(--text); margin-bottom: 10px; }
+    .careers-aside p  { font-size: 14px; color: var(--text-muted); line-height: 1.7; margin-bottom: 28px; }
+
+    /* =====================
+       Contact
+    ===================== */
+    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; margin-top: 56px; }
+    .contact-info h3 { font-family: 'Space Grotesk', sans-serif; font-size: 21px; font-weight: 600; color: var(--text); margin-bottom: 14px; }
+    .contact-info p  { font-size: 14.5px; color: var(--text-muted); line-height: 1.75; margin-bottom: 28px; }
+    .c-detail { display: flex; align-items: center; gap: 12px; font-size: 13.5px; color: var(--text-muted); margin-bottom: 14px; }
+    .c-detail-ico {
+      width: 34px; height: 34px; border-radius: 8px;
+      background: rgba(255,153,51,0.08);
+      display: flex; align-items: center; justify-content: center; font-size: 15px; flex-shrink: 0;
+    }
+    .c-detail-ttl { font-size: 12px; font-weight: 500; color: var(--text); margin-bottom: 1px; }
+
+    .cform { display: flex; flex-direction: column; gap: 14px; }
+    .fgrp { display: flex; flex-direction: column; gap: 6px; }
+    .fgrp label { font-size: 12.5px; font-weight: 500; color: var(--text-muted); }
+    .fgrp input, .fgrp textarea, .fgrp select {
+      padding: 11px 14px;
+      background: var(--bg-2); border: 1px solid var(--border);
+      border-radius: 8px; color: var(--text);
+      font-family: 'Inter', sans-serif; font-size: 13.5px;
+      outline: none; transition: border-color 0.2s;
+      resize: none;
+    }
+    .fgrp input:focus, .fgrp textarea:focus, .fgrp select:focus { border-color: rgba(255,153,51,0.4); }
+    .fgrp select { background-color: var(--bg-2); cursor: pointer; }
+    .fgrp textarea { height: 112px; }
+    .frow { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+
+    /* =====================
+       Footer
+    ===================== */
+    footer { background: var(--bg-2); border-top: 1px solid var(--border); padding: 56px 40px 36px; }
+    .footer-inner { max-width: 1180px; margin: 0 auto; }
+    .footer-top { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 56px; margin-bottom: 52px; }
+    .footer-brand p { font-size: 13.5px; color: var(--text-muted); line-height: 1.7; max-width: 270px; margin-top: 14px; }
+    .footer-col h4 { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.6px; color: var(--text); margin-bottom: 14px; }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 9px; }
+    .footer-col a { font-size: 13.5px; color: var(--text-muted); transition: color 0.2s; }
+    .footer-col a:hover { color: var(--text); }
+    .footer-bot {
+      display: flex; align-items: center; justify-content: space-between;
+      padding-top: 28px; border-top: 1px solid var(--border);
+      flex-wrap: wrap; gap: 14px;
+      font-size: 12.5px; color: var(--text-dim);
+    }
+    .footer-bot em { color: var(--saffron); font-style: normal; }
+
+    /* =====================
+       Dividers / accents
+    ===================== */
+    .divider {
+      height: 1px; margin: 0 40px;
+      background: linear-gradient(90deg, transparent, var(--border), transparent);
+    }
+
+    /* =====================
+       Scroll fade-in
+    ===================== */
+    .fi {
+      opacity: 0; transform: translateY(26px);
+      transition: opacity 0.65s ease, transform 0.65s ease;
+    }
+    .fi.vis { opacity: 1; transform: translateY(0); }
+
+    /* =====================
+       Scrollbar
+    ===================== */
+    ::-webkit-scrollbar { width: 5px; }
+    ::-webkit-scrollbar-track { background: var(--bg); }
+    ::-webkit-scrollbar-thumb { background: var(--bg-3); border-radius: 3px; }
+    ::-webkit-scrollbar-thumb:hover { background: rgba(255,153,51,0.3); }
+
+    /* =====================
+       Responsive
+    ===================== */
+    @media (max-width: 1024px) {
+      .tech-grid    { grid-template-columns: repeat(2,1fr); }
+      .research-grid{ grid-template-columns: repeat(2,1fr); }
+      .footer-top   { grid-template-columns: 1fr 1fr; gap: 36px; }
+    }
+    @media (max-width: 768px) {
+      #navbar { padding: 14px 20px; }
+      .nav-links { display: none; }
+      section { padding: 72px 20px; }
+      #hero { padding: 100px 20px 64px; }
+      .vision-grid, .about-grid, .careers-grid, .contact-grid { grid-template-columns: 1fr; gap: 40px; }
+      .tech-grid, .research-grid { grid-template-columns: 1fr; }
+      .products-grid { grid-template-columns: 1fr; }
+      .prod-card.featured { grid-column: span 1; grid-template-columns: 1fr; }
+      .about-vals  { grid-template-columns: 1fr; }
+      .footer-top  { grid-template-columns: 1fr; gap: 28px; }
+      .frow        { grid-template-columns: 1fr; }
+      .hero-stats  { gap: 24px; }
+      .vision-orb  { width: 260px; height: 260px; }
+      .footer-bot  { flex-direction: column; gap: 6px; text-align: center; }
+      .divider     { margin: 0 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ========== NAVBAR ========== -->
+<nav id="navbar">
+  <a href="#" class="nav-logo">
+    <div class="nav-logo-mark">S</div>
+    <span class="nav-logo-text">Swadeshi<em>AI</em></span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#vision">Vision</a></li>
+    <li><a href="#technology">Technology</a></li>
+    <li><a href="#products">Products</a></li>
+    <li><a href="#research">Research</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#careers">Careers</a></li>
+    <li><a href="#contact" class="nav-cta">Get in Touch</a></li>
+  </ul>
+</nav>
+
+<!-- ========== HERO ========== -->
+<section id="hero">
+  <canvas id="neural-canvas"></canvas>
+  <div class="hero-inner">
+    <div class="hero-badge"><span></span>Made in India · Built for the World</div>
+    <h1 class="hero-title">
+      Building India's<br>
+      <span class="accent-s">AI Infrastructure</span>
+    </h1>
+    <p class="hero-sub">
+      SwadeshiAI is developing advanced AI systems, agent ecosystems, and intelligent platforms
+      designed and built in India — for the next generation of software.
+    </p>
+    <div class="hero-actions">
+      <a href="#technology" class="btn-primary">Explore Our Technology</a>
+      <a href="#about"      class="btn-secondary">Learn About Us</a>
+    </div>
+    <div class="hero-stats">
+      <div>
+        <span class="stat-val">100%</span>
+        <div class="stat-lbl">Indigenous Technology</div>
+      </div>
+      <div>
+        <span class="stat-val">∞</span>
+        <div class="stat-lbl">Agent Capacity</div>
+      </div>
+      <div>
+        <span class="stat-val">1.4B</span>
+        <div class="stat-lbl">People to Empower</div>
+      </div>
+      <div>
+        <span class="stat-val">0→1</span>
+        <div class="stat-lbl">Building from Foundations</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== VISION ========== -->
+<section id="vision">
+  <div class="container">
+    <div class="vision-grid">
+      <div>
+        <div class="section-label fi">Our Mission</div>
+        <h2 class="section-title fi">The Vision Behind SwadeshiAI</h2>
+        <p class="section-sub fi">
+          We believe the next wave of AI must be built with indigenous intent —
+          sovereign, capable, and rooted in the needs of India and the world.
+        </p>
+        <div class="pillars">
+          <div class="pillar fi">
+            <div class="pillar-ico ico-s">🏛️</div>
+            <div>
+              <div class="pillar-ttl">Technological Sovereignty</div>
+              <div class="pillar-dsc">India must own its AI stack — from foundational models to deployment infrastructure. We are building that independence.</div>
+            </div>
+          </div>
+          <div class="pillar fi">
+            <div class="pillar-ico ico-e">🔬</div>
+            <div>
+              <div class="pillar-ttl">Indigenous AI Innovation</div>
+              <div class="pillar-dsc">Designing AI systems with an Indian perspective — culturally aware, contextually intelligent, and globally competitive.</div>
+            </div>
+          </div>
+          <div class="pillar fi">
+            <div class="pillar-ico ico-s">⚡</div>
+            <div>
+              <div class="pillar-ttl">Empowering Builders</div>
+              <div class="pillar-dsc">Providing developers and creators with advanced AI systems, frameworks, and tools to build the applications of tomorrow.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="vision-orb-wrap fi">
+        <div class="vision-orb">
+          <div class="orb-core">SwadeshiAI</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== TECHNOLOGY ========== -->
+<section id="technology">
+  <div class="container">
+    <div class="section-label fi">Core Capabilities</div>
+    <h2 class="section-title fi">Technology at the Frontier</h2>
+    <p class="section-sub fi">
+      Our core technology spans multi-agent orchestration, autonomous workflows,
+      and developer-centric AI infrastructure — engineered for scale.
+    </p>
+    <div class="tech-grid">
+      <div class="tech-card fi">
+        <div class="card-ico">🤖</div>
+        <div class="card-ttl">Multi-Agent AI Systems</div>
+        <div class="card-dsc">Orchestrate thousands of specialised AI agents working in parallel — planning, executing, and collaborating to solve complex problems autonomously.</div>
+        <div class="card-tag">Agent Framework</div>
+      </div>
+      <div class="tech-card fi">
+        <div class="card-ico e-bg">⚙️</div>
+        <div class="card-ttl">Autonomous AI Workflows</div>
+        <div class="card-dsc">Self-directing AI pipelines that sense, reason, and act — eliminating the need for constant human orchestration at every step.</div>
+        <div class="card-tag">Automation Core</div>
+      </div>
+      <div class="tech-card fi">
+        <div class="card-ico">🛠️</div>
+        <div class="card-ttl">Developer AI Infrastructure</div>
+        <div class="card-dsc">APIs, SDKs, and toolchains that allow developers to seamlessly integrate advanced AI capabilities into any application.</div>
+        <div class="card-tag">Dev Tools</div>
+      </div>
+      <div class="tech-card fi">
+        <div class="card-ico e-bg">🧠</div>
+        <div class="card-ttl">LLM Integrations</div>
+        <div class="card-dsc">Deep integration with large language models — including custom fine-tuning, retrieval-augmented generation, and context management layers.</div>
+        <div class="card-tag">Language Models</div>
+      </div>
+      <div class="tech-card fi">
+        <div class="card-ico">🔭</div>
+        <div class="card-ttl">AI Research &amp; Experimentation</div>
+        <div class="card-dsc">Dedicated research into novel architectures, AI safety mechanisms, and new paradigms for computational intelligence.</div>
+        <div class="card-tag">Research</div>
+      </div>
+      <div class="tech-card fi">
+        <div class="card-ico e-bg">🌐</div>
+        <div class="card-ttl">AI Platform Engineering</div>
+        <div class="card-dsc">End-to-end platform engineering for training, inference, and deployment — optimised for India's compute landscape and global scale.</div>
+        <div class="card-tag">Infrastructure</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== PRODUCTS ========== -->
+<section id="products">
+  <div class="container">
+    <div class="products-hdr">
+      <div>
+        <div class="section-label fi">Product Ecosystem</div>
+        <h2 class="section-title fi">Platforms &amp; Products</h2>
+      </div>
+      <p class="section-sub fi" style="max-width:320px;">
+        A suite of intelligent platforms engineered for the future of AI-driven software.
+      </p>
+    </div>
+    <div class="products-grid">
+      <!-- Featured -->
+      <div class="prod-card featured fi">
+        <div>
+          <div class="prod-status status-active">Active Development</div>
+          <div class="prod-name">SwadeshiAI Agent Framework</div>
+          <div class="prod-dsc">The core multi-agent orchestration platform — enabling developers to create, deploy, and scale autonomous AI agent networks with a declarative API.</div>
+          <ul class="prod-feats">
+            <li>Distributed agent orchestration</li>
+            <li>Tool use &amp; function calling</li>
+            <li>Memory management &amp; context persistence</li>
+            <li>Real-time agent communication protocols</li>
+          </ul>
+        </div>
+        <div class="prod-visual">
+          <div class="prod-visual-inner">🕸️</div>
+        </div>
+      </div>
+      <!-- Vaahan -->
+      <div class="prod-card fi">
+        <div class="prod-status status-soon">Coming Soon</div>
+        <div class="prod-name">Vaahan</div>
+        <div class="prod-dsc">An autonomous AI workflow engine — define goals, Vaahan figures out the steps and executes them end-to-end.</div>
+        <ul class="prod-feats">
+          <li>Goal-oriented task execution</li>
+          <li>Dynamic workflow generation</li>
+          <li>Human-in-the-loop controls</li>
+        </ul>
+      </div>
+      <!-- Bodhi -->
+      <div class="prod-card fi">
+        <div class="prod-status status-soon">Coming Soon</div>
+        <div class="prod-name">Bodhi SDK</div>
+        <div class="prod-dsc">Developer-first AI SDK to integrate intelligence into any application with minimal friction and maximum capability.</div>
+        <ul class="prod-feats">
+          <li>Language-agnostic APIs</li>
+          <li>Streaming &amp; batch inference</li>
+          <li>Edge deployment support</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== RESEARCH ========== -->
+<section id="research">
+  <div class="container">
+    <div class="section-label fi">Research &amp; Innovation</div>
+    <h2 class="section-title fi">Committed to the Frontier</h2>
+    <p class="section-sub fi">
+      We invest in deep research to push the boundaries of what AI can do — safely, efficiently, and with purpose.
+    </p>
+    <div class="research-grid">
+      <div class="research-item fi">
+        <div class="r-num">01</div>
+        <div class="r-ttl">AI Safety &amp; Alignment</div>
+        <div class="r-dsc">Researching methods to ensure AI systems behave in alignment with human intent, even in complex and novel situations.</div>
+      </div>
+      <div class="research-item fi">
+        <div class="r-num">02</div>
+        <div class="r-ttl">Efficient Inference Systems</div>
+        <div class="r-dsc">Developing techniques to run powerful AI models with minimal compute — enabling AI at the edge and in resource-constrained environments.</div>
+      </div>
+      <div class="research-item fi">
+        <div class="r-num">03</div>
+        <div class="r-ttl">Indic Language Models</div>
+        <div class="r-dsc">Building language models with deep understanding of Indian languages, dialects, and cultural context — making AI truly accessible.</div>
+      </div>
+      <div class="research-item fi">
+        <div class="r-num">04</div>
+        <div class="r-ttl">Autonomous Reasoning</div>
+        <div class="r-dsc">Advancing AI systems capable of multi-step planning, causal reasoning, and decision-making in complex, dynamic environments.</div>
+      </div>
+      <div class="research-item fi">
+        <div class="r-num">05</div>
+        <div class="r-ttl">Neuro-Symbolic AI</div>
+        <div class="r-dsc">Exploring the intersection of neural networks and symbolic reasoning to create AI that is both powerful and interpretable.</div>
+      </div>
+      <div class="research-item fi">
+        <div class="r-num">06</div>
+        <div class="r-ttl">Human-AI Collaboration</div>
+        <div class="r-dsc">Designing interaction paradigms that enhance human intelligence rather than replace it — AI as a cognitive partner.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== ABOUT ========== -->
+<section id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-body">
+        <div class="section-label fi">Who We Are</div>
+        <h2 class="section-title fi">About SwadeshiAI Private Limited</h2>
+        <p class="fi">
+          <span class="hi">SwadeshiAI Private Limited</span> is an Indian artificial intelligence startup on a mission to
+          build globally competitive AI technologies — designed, developed, and owned in India.
+        </p>
+        <p class="fi">
+          We are building the foundational infrastructure for the next era of AI: multi-agent systems,
+          autonomous workflows, and developer tools that empower creators to build intelligent
+          applications without constraint.
+        </p>
+        <p class="fi">
+          Our work is rooted in the belief that India is not just a market for AI — it is a
+          <span class="hi">source of AI innovation</span>. We are here to prove that world-class
+          artificial intelligence can be built from India, for the world.
+        </p>
+        <div class="about-vals fi">
+          <div class="aval">
+            <div class="aval-ttl">🇮🇳 Made in India</div>
+            <div class="aval-dsc">Built with indigenous talent and intent</div>
+          </div>
+          <div class="aval">
+            <div class="aval-ttl">🔒 Safety First</div>
+            <div class="aval-dsc">Responsible AI at every layer</div>
+          </div>
+          <div class="aval">
+            <div class="aval-ttl">⚡ Move Fast</div>
+            <div class="aval-dsc">Startup velocity with research depth</div>
+          </div>
+          <div class="aval">
+            <div class="aval-ttl">🌍 Global Scale</div>
+            <div class="aval-dsc">Built for world-class performance</div>
+          </div>
+        </div>
+      </div>
+      <div class="fi" style="display:flex;align-items:center;justify-content:center;">
+        <div class="about-card" style="width:100%;max-width:380px;">
+          <div class="about-card-flag">🇮🇳</div>
+          <div class="about-card-name">SwadeshiAI Private Limited</div>
+          <div class="about-card-sub">Registered in India · Building for the World</div>
+          <div class="about-card-stats">
+            <div class="acs">
+              <div class="acs-val" style="color:var(--saffron);">2024</div>
+              <div class="acs-lbl">Founded</div>
+            </div>
+            <div style="width:1px;background:var(--border);"></div>
+            <div class="acs">
+              <div class="acs-val" style="color:var(--emerald);">India</div>
+              <div class="acs-lbl">Headquarters</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== FOUNDER ========== -->
+<section id="founder">
+  <div class="container">
+    <div class="section-label fi" style="text-align:center;">The People Behind SwadeshiAI</div>
+    <h2 class="section-title fi" style="text-align:center;">Founder's Note</h2>
+    <div class="founder-wrap fi">
+      <div class="founder-card">
+        <div class="founder-avatar">R</div>
+        <div class="founder-name">Racha Sumanth</div>
+        <div class="founder-role">Founder &amp; CEO, SwadeshiAI Private Limited</div>
+        <p class="founder-quote">
+          "India has the talent, the ambition, and the need to lead in artificial intelligence.
+          I started SwadeshiAI because I believe that building indigenous AI infrastructure is not
+          just a business opportunity — it is a national imperative. We are here to build AI that
+          India can call its own."
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== CAREERS ========== -->
+<section id="careers">
+  <div class="container">
+    <div class="careers-grid">
+      <div>
+        <div class="section-label fi">Join the Mission</div>
+        <h2 class="section-title fi">Careers &amp; Collaboration</h2>
+        <p class="section-sub fi">
+          We are looking for exceptional people — researchers, engineers, and builders who want to
+          work on AI systems that matter.
+        </p>
+        <div class="roles">
+          <a href="#contact" class="role-row fi">
+            <div>
+              <div class="role-n">AI Research Engineer</div>
+              <div class="role-t">Full-time · Remote / India</div>
+            </div>
+            <span class="role-arr">→</span>
+          </a>
+          <a href="#contact" class="role-row fi">
+            <div>
+              <div class="role-n">ML Platform Engineer</div>
+              <div class="role-t">Full-time · Remote / India</div>
+            </div>
+            <span class="role-arr">→</span>
+          </a>
+          <a href="#contact" class="role-row fi">
+            <div>
+              <div class="role-n">Agent Systems Developer</div>
+              <div class="role-t">Full-time · Remote / India</div>
+            </div>
+            <span class="role-arr">→</span>
+          </a>
+          <a href="#contact" class="role-row fi">
+            <div>
+              <div class="role-n">Open Source Collaborator</div>
+              <div class="role-t">Open · Anywhere</div>
+            </div>
+            <span class="role-arr">→</span>
+          </a>
+        </div>
+      </div>
+      <div class="careers-aside fi">
+        <h3>Not seeing your role?</h3>
+        <p>We are always looking for exceptional talent. If you are passionate about AI and want to help build India's AI infrastructure, we want to hear from you.</p>
+        <a href="#contact" class="btn-primary">Get in Touch</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== CONTACT ========== -->
+<section id="contact">
+  <div class="container">
+    <div class="section-label fi">Reach Out</div>
+    <h2 class="section-title fi">Contact Us</h2>
+    <div class="contact-grid">
+      <div class="contact-info fi">
+        <h3>Let's Build Together</h3>
+        <p>
+          Whether you're a developer wanting to use our technology, a researcher interested in
+          collaboration, or an investor who shares our vision — we'd love to hear from you.
+        </p>
+        <div class="c-detail">
+          <div class="c-detail-ico">📧</div>
+          <div>
+            <div class="c-detail-ttl">Email</div>
+            <div>hello@swadeshi.dev</div>
+          </div>
+        </div>
+        <div class="c-detail">
+          <div class="c-detail-ico">📍</div>
+          <div>
+            <div class="c-detail-ttl">Location</div>
+            <div>India · Building Globally</div>
+          </div>
+        </div>
+        <div class="c-detail">
+          <div class="c-detail-ico">🌐</div>
+          <div>
+            <div class="c-detail-ttl">Website</div>
+            <div>www.swadeshi.dev</div>
+          </div>
+        </div>
+      </div>
+      <div class="fi">
+        <form class="cform" id="contact-form" onsubmit="handleSubmit(event)">
+          <div class="frow">
+            <div class="fgrp">
+              <label for="fname">Name</label>
+              <input type="text" id="fname" name="name" placeholder="Your full name" required>
+            </div>
+            <div class="fgrp">
+              <label for="femail">Email</label>
+              <input type="email" id="femail" name="email" placeholder="your@email.com" required>
+            </div>
+          </div>
+          <div class="fgrp">
+            <label for="fsubject">I'm reaching out about</label>
+            <select id="fsubject" name="subject" required>
+              <option value="" disabled selected>Select a topic</option>
+              <option value="partnership">Partnership / Collaboration</option>
+              <option value="investment">Investment</option>
+              <option value="careers">Careers</option>
+              <option value="technology">Technology / API Access</option>
+              <option value="press">Press / Media</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+          <div class="fgrp">
+            <label for="fmsg">Message</label>
+            <textarea id="fmsg" name="message" placeholder="Tell us about your interest or project…" required></textarea>
+          </div>
+          <button type="submit" class="btn-primary" id="submit-btn" style="width:100%;border:none;font-family:'Inter',sans-serif;cursor:pointer;">
+            Send Message
+          </button>
+          <p style="font-size:11.5px;color:var(--text-dim);text-align:center;margin-top:10px;">
+            Submitting opens your email client with a pre-filled draft to
+            <a href="mailto:hello@swadeshi.dev" style="color:var(--saffron);">hello@swadeshi.dev</a>.
+          </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== FOOTER ========== -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="#" class="nav-logo">
+          <div class="nav-logo-mark">S</div>
+          <span class="nav-logo-text">Swadeshi<em>AI</em></span>
+        </a>
+        <p>Building India's AI infrastructure — multi-agent systems, autonomous workflows, and developer tools for the next generation of software.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#founder">Team</a></li>
+          <li><a href="#careers">Careers</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Technology</h4>
+        <ul>
+          <li><a href="#technology">Core Tech</a></li>
+          <li><a href="#products">Products</a></li>
+          <li><a href="#research">Research</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Connect</h4>
+        <ul>
+          <li><a href="https://github.com/Rachasumanth" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+          <li><a href="https://www.linkedin.com/company/swadeshiai" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+          <li><a href="https://twitter.com/SwadeshiAI" target="_blank" rel="noopener noreferrer">Twitter / X</a></li>
+          <li><a href="mailto:hello@swadeshi.dev">Email</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bot">
+      <span>© 2024 SwadeshiAI Private Limited. Built with <em>🧡</em> in India.</span>
+      <span>Technological Sovereignty · Indigenous AI · Built for the World</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ========== SCRIPTS ========== -->
+<script>
+  /* ── Neural-network canvas animation ── */
+  (function () {
+    const canvas = document.getElementById('neural-canvas');
+    const ctx    = canvas.getContext('2d');
+    let nodes    = [];
+    let raf;
+
+    function resize() {
+      canvas.width  = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+
+    function initNodes() {
+      nodes = [];
+      const NODE_DENSITY_FACTOR = 14000; /* px² per node */
+      const MAX_NODES            = 80;
+      const count = Math.min(Math.floor((canvas.width * canvas.height) / NODE_DENSITY_FACTOR), MAX_NODES);
+      for (let i = 0; i < count; i++) {
+        nodes.push({
+          x:  Math.random() * canvas.width,
+          y:  Math.random() * canvas.height,
+          vx: (Math.random() - 0.5) * 0.4,
+          vy: (Math.random() - 0.5) * 0.4,
+          r:  Math.random() * 1.8 + 0.8,
+          col: Math.random() > 0.55
+            ? 'rgba(255,153,51,'
+            : (Math.random() > 0.5 ? 'rgba(16,185,129,' : 'rgba(160,160,160,'),
+        });
+      }
+    }
+
+    function draw() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      /* connections */
+      for (let i = 0; i < nodes.length; i++) {
+        for (let j = i + 1; j < nodes.length; j++) {
+          const dx   = nodes[i].x - nodes[j].x;
+          const dy   = nodes[i].y - nodes[j].y;
+          const dist = Math.hypot(dx, dy);
+          if (dist < 145) {
+            const a = (1 - dist / 145) * 0.28;
+            ctx.beginPath();
+            ctx.moveTo(nodes[i].x, nodes[i].y);
+            ctx.lineTo(nodes[j].x, nodes[j].y);
+            ctx.strokeStyle = 'rgba(255,153,51,' + a + ')';
+            ctx.lineWidth   = 0.5;
+            ctx.stroke();
+          }
+        }
+      }
+
+      /* dots */
+      nodes.forEach(n => {
+        ctx.beginPath();
+        ctx.arc(n.x, n.y, n.r, 0, Math.PI * 2);
+        ctx.fillStyle = n.col + '0.65)';
+        ctx.fill();
+
+        /* soft glow */
+        const g = ctx.createRadialGradient(n.x, n.y, 0, n.x, n.y, n.r * 4);
+        g.addColorStop(0, n.col + '0.12)');
+        g.addColorStop(1, n.col + '0)');
+        ctx.beginPath();
+        ctx.arc(n.x, n.y, n.r * 4, 0, Math.PI * 2);
+        ctx.fillStyle = g;
+        ctx.fill();
+      });
+    }
+
+    function step() {
+      nodes.forEach(n => {
+        n.x += n.vx;
+        n.y += n.vy;
+        if (n.x < 0 || n.x > canvas.width)  n.vx *= -1;
+        if (n.y < 0 || n.y > canvas.height) n.vy *= -1;
+      });
+      draw();
+      raf = requestAnimationFrame(step);
+    }
+
+    resize();
+    initNodes();
+    step();
+
+    window.addEventListener('resize', () => { resize(); initNodes(); });
+  })();
+
+  /* ── Scroll-triggered fade-in ── */
+  (function () {
+    const STAGGER_DELAY_MS = 55; /* ms between successive element fade-ins */
+    const items = document.querySelectorAll('.fi');
+    const io    = new IntersectionObserver((entries) => {
+      entries.forEach((e, idx) => {
+        if (e.isIntersecting) {
+          setTimeout(() => e.target.classList.add('vis'), idx * STAGGER_DELAY_MS);
+          io.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    items.forEach(el => io.observe(el));
+  })();
+
+  /* ── Navbar opacity on scroll ── */
+  (function () {
+    const nb = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      nb.style.background = window.scrollY > 50
+        ? 'rgba(13,13,13,0.97)'
+        : 'rgba(13,13,13,0.75)';
+    }, { passive: true });
+  })();
+
+  /* ── Contact form submit — composes a mailto: with form data ── */
+  function handleSubmit(e) {
+    e.preventDefault();
+    const form    = e.target;
+    const name    = form.elements['name'].value.trim();
+    const email   = form.elements['email'].value.trim();
+    const subject = form.elements['subject'].value;
+    const message = form.elements['message'].value.trim();
+
+    const mailSubject = encodeURIComponent('[SwadeshiAI] ' + subject + ' — from ' + name);
+    const mailBody    = encodeURIComponent(
+      'Name: ' + name + '\nEmail: ' + email + '\nTopic: ' + subject + '\n\n' + message
+    );
+    window.location.href = 'mailto:hello@swadeshi.dev?subject=' + mailSubject + '&body=' + mailBody;
+
+    const btn = document.getElementById('submit-btn');
+    btn.textContent      = '✓ Opening email client…';
+    btn.style.background = 'linear-gradient(135deg,#10B981,#059669)';
+    btn.style.boxShadow  = '0 0 32px rgba(16,185,129,0.35)';
+    btn.disabled = true;
+    setTimeout(() => {
+      btn.textContent      = 'Send Message';
+      btn.style.background = '';
+      btn.style.boxShadow  = '';
+      btn.disabled = false;
+    }, 4000);
+  }
+</script>
+
+</body>
+</html>
