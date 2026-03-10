@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Swadeshi – Celebrate Indian Craftsmanship</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    /* Hero */
+    .hero {
+      background: linear-gradient(135deg, #e07b39 0%, #c4612a 60%, #2e7d32 100%);
+      color: white;
+      padding: 80px 24px;
+      text-align: center;
+    }
+    .hero h1 { font-size: 3rem; margin-bottom: 16px; }
+    .hero p  { font-size: 1.2rem; opacity: 0.9; max-width: 540px; margin: 0 auto 32px; }
+    .hero-actions { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+    .btn-white { background: white; color: var(--color-primary); font-weight: 700; }
+    .btn-white:hover { background: #fff8f4; color: var(--color-primary-dark); text-decoration: none; }
+    .btn-ghost { background: transparent; color: white; border: 2px solid rgba(255,255,255,0.7); font-weight: 600; }
+    .btn-ghost:hover { background: rgba(255,255,255,0.15); color: white; text-decoration: none; }
+
+    /* Features */
+    .features { max-width: 1000px; margin: 60px auto; padding: 0 20px; }
+    .features h2 { text-align: center; font-size: 1.8rem; margin-bottom: 36px; color: var(--color-primary); }
+    .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 24px; }
+    .feature-card {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      padding: 28px 20px;
+      text-align: center;
+      box-shadow: var(--shadow-sm);
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+    .feature-card:hover { box-shadow: var(--shadow-md); transform: translateY(-3px); }
+    .feature-card .icon { font-size: 2.5rem; margin-bottom: 14px; display: block; }
+    .feature-card h3 { font-size: 1rem; margin-bottom: 8px; }
+    .feature-card p { font-size: 0.88rem; color: var(--color-text-muted); }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <a href="index.html" class="navbar-brand">
+      <span class="brand-icon">🪔</span> Swadeshi
+    </a>
+    <ul class="navbar-nav">
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="#">Artisans</a></li>
+      <li><a href="#">Shop</a></li>
+      <li><a href="profile.html">Profile</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero">
+    <h1>🪔 Swadeshi</h1>
+    <p>Discover and celebrate authentic Indian craftsmanship. Support local artisans, buy handmade products.</p>
+    <div class="hero-actions">
+      <a href="#" class="btn btn-white">Explore Products</a>
+      <a href="profile.html" class="btn btn-ghost">View Profile</a>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section class="features">
+    <h2>Why Swadeshi?</h2>
+    <div class="features-grid">
+      <div class="feature-card">
+        <span class="icon">🏺</span>
+        <h3>Authentic Crafts</h3>
+        <p>Handpicked items from verified local artisans across India.</p>
+      </div>
+      <div class="feature-card">
+        <span class="icon">🤝</span>
+        <h3>Support Local</h3>
+        <p>Every purchase directly supports an Indian craftsperson's livelihood.</p>
+      </div>
+      <div class="feature-card">
+        <span class="icon">🌿</span>
+        <h3>Sustainable</h3>
+        <p>Eco-friendly products made with traditional, nature-friendly techniques.</p>
+      </div>
+      <div class="feature-card">
+        <span class="icon">✅</span>
+        <h3>Verified Quality</h3>
+        <p>Each product is reviewed and quality-checked before listing.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    &copy; 2026 <a href="index.html">Swadeshi</a>. Made with ❤️ for India.
+  </footer>
+
+</body>
+</html>
