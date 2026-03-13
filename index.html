@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Swadeshi AI Private Limited</title>
+    <meta
+      name="description"
+      content="Swadeshi AI Private Limited builds sovereign AI platforms, intelligent automation, and secure enterprise solutions for every Indian business."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --bg: #060a18;
+        --surface: rgba(255, 255, 255, 0.08);
+        --text: #f6f7fb;
+        --muted: #a8b0cb;
+        --primary: #66a3ff;
+        --secondary: #52ffd9;
+        --ring: rgba(102, 163, 255, 0.35);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        color: var(--text);
+        background: radial-gradient(circle at 20% 0%, #13254d 0%, var(--bg) 55%);
+        font-family: Inter, system-ui, -apple-system, sans-serif;
+        scroll-behavior: smooth;
+      }
+
+      canvas {
+        position: fixed;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 0;
+      }
+
+      .shell {
+        position: relative;
+        z-index: 1;
+      }
+
+      .container {
+        width: min(1120px, calc(100% - 2rem));
+        margin: 0 auto;
+      }
+
+      .nav {
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        backdrop-filter: blur(8px);
+        background: rgba(5, 10, 24, 0.8);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      }
+
+      .nav-inner {
+        height: 72px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .logo {
+        font-family: "Space Grotesk", sans-serif;
+        font-weight: 700;
+        letter-spacing: 0.04em;
+      }
+
+      .menu {
+        display: flex;
+        gap: 1.2rem;
+      }
+
+      .menu a {
+        color: var(--muted);
+        text-decoration: none;
+        font-size: 0.95rem;
+      }
+
+      .menu a:hover {
+        color: var(--text);
+      }
+
+      .hero {
+        padding: 6rem 0 4rem;
+      }
+
+      .badge {
+        display: inline-block;
+        padding: 0.4rem 0.8rem;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        border-radius: 100px;
+        color: var(--secondary);
+        font-size: 0.86rem;
+      }
+
+      h1 {
+        font-family: "Space Grotesk", sans-serif;
+        font-size: clamp(2rem, 4vw, 4rem);
+        margin: 1rem 0;
+        line-height: 1.12;
+        max-width: 16ch;
+      }
+
+      .lead {
+        color: var(--muted);
+        font-size: clamp(1rem, 2.2vw, 1.2rem);
+        max-width: 60ch;
+        line-height: 1.6;
+      }
+
+      .hero-actions {
+        margin-top: 2rem;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+      }
+
+      .btn {
+        border: 0;
+        border-radius: 0.8rem;
+        padding: 0.8rem 1.2rem;
+        color: #081230;
+        background: linear-gradient(120deg, var(--secondary), var(--primary));
+        text-decoration: none;
+        font-weight: 700;
+      }
+
+      .btn.secondary {
+        background: transparent;
+        border: 1px solid rgba(255, 255, 255, 0.25);
+        color: var(--text);
+      }
+
+      section {
+        padding: 2rem 0 3rem;
+      }
+
+      h2 {
+        font-family: "Space Grotesk", sans-serif;
+        margin-bottom: 0.5rem;
+      }
+
+      .section-sub {
+        color: var(--muted);
+        margin-top: 0;
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 1rem;
+      }
+
+      .card {
+        background: var(--surface);
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        border-radius: 1rem;
+        padding: 1.1rem;
+        box-shadow: 0 0 0 1px transparent;
+      }
+
+      .card:hover {
+        box-shadow: 0 0 0 1px var(--ring);
+      }
+
+      .card h3 {
+        margin-top: 0.2rem;
+      }
+
+      .card p,
+      .footer p {
+        color: var(--muted);
+        line-height: 1.6;
+      }
+
+      .stats {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 1rem;
+      }
+
+      .stat strong {
+        font-size: 1.8rem;
+        display: block;
+      }
+
+      .footer {
+        border-top: 1px solid rgba(255, 255, 255, 0.12);
+        padding: 2rem 0 3rem;
+      }
+
+      .footer-row {
+        display: flex;
+        justify-content: space-between;
+        gap: 1rem;
+        flex-wrap: wrap;
+      }
+
+      @media (max-width: 900px) {
+        .grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+        .stats {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+      }
+
+      @media (max-width: 640px) {
+        .menu {
+          display: none;
+        }
+        .grid,
+        .stats {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <canvas id="ai-canvas" aria-hidden="true"></canvas>
+    <div class="shell">
+      <header class="nav">
+        <div class="container nav-inner">
+          <div class="logo">SWADESHI AI</div>
+          <nav class="menu" aria-label="Primary navigation">
+            <a href="#solutions">Solutions</a>
+            <a href="#platform">Platform</a>
+            <a href="#impact">Impact</a>
+            <a href="#contact">Contact</a>
+          </nav>
+        </div>
+      </header>
+
+      <main>
+        <section class="hero container">
+          <span class="badge">Built in India · Trusted Globally</span>
+          <h1>Swadeshi AI Private Limited powers intelligent businesses.</h1>
+          <p class="lead">
+            We design high-performance AI products, agentic automation, and secure
+            cloud-native intelligence systems that scale across web, mobile, and enterprise platforms.
+          </p>
+          <div class="hero-actions">
+            <a href="#contact" class="btn">Book a Demo</a>
+            <a href="#solutions" class="btn secondary">Explore Solutions</a>
+          </div>
+        </section>
+
+        <section id="solutions" class="container">
+          <h2>AI Solutions Portfolio</h2>
+          <p class="section-sub">Enterprise-ready capabilities for modern digital growth.</p>
+          <div class="grid">
+            <article class="card">
+              <h3>Conversational Intelligence</h3>
+              <p>Brand-aware AI assistants for customer support, sales acceleration, and multilingual engagement.</p>
+            </article>
+            <article class="card">
+              <h3>Predictive Decision Systems</h3>
+              <p>Forecasting engines that optimize revenue, risk, operations, and supply planning with explainable insights.</p>
+            </article>
+            <article class="card">
+              <h3>Automation & Agent Workflows</h3>
+              <p>Autonomous AI agents that execute repetitive workflows with governance and human-in-the-loop controls.</p>
+            </article>
+          </div>
+        </section>
+
+        <section id="platform" class="container">
+          <h2>Platform Features</h2>
+          <p class="section-sub">Designed as an adaptive AI canvas for every device and deployment model.</p>
+          <div class="grid">
+            <article class="card">
+              <h3>Adaptive Interface Layer</h3>
+              <p>Responsive design architecture that delivers consistent experience on desktop, tablet, and mobile platforms.</p>
+            </article>
+            <article class="card">
+              <h3>Sovereign & Secure Stack</h3>
+              <p>Data privacy by design, role-based controls, and enterprise-grade observability for mission-critical use.</p>
+            </article>
+            <article class="card">
+              <h3>Plug-and-Scale APIs</h3>
+              <p>Modular integration with CRMs, ERPs, and custom workflows through robust APIs and event-driven services.</p>
+            </article>
+          </div>
+        </section>
+
+        <section id="impact" class="container">
+          <h2>Business Impact</h2>
+          <p class="section-sub">Measurable outcomes delivered by Swadeshi AI teams and products.</p>
+          <div class="stats">
+            <article class="card stat"><strong>99.95%</strong><span>Platform Availability</span></article>
+            <article class="card stat"><strong>3x</strong><span>Faster Process Automation</span></article>
+            <article class="card stat"><strong>42%</strong><span>Reduction in Support Cost</span></article>
+            <article class="card stat"><strong>24/7</strong><span>AI Operations Monitoring</span></article>
+          </div>
+        </section>
+      </main>
+
+      <footer id="contact" class="footer">
+        <div class="container footer-row">
+          <div>
+            <div class="logo">Swadeshi AI Private Limited</div>
+            <p>Email: contact@swadeshi.dev</p>
+          </div>
+          <p>© 2026 Swadeshi AI Private Limited. All rights reserved.</p>
+        </div>
+      </footer>
+    </div>
+
+    <script>
+      const canvas = document.getElementById("ai-canvas");
+      const context = canvas.getContext("2d");
+      const particles = [];
+      const particleCount = 45;
+
+      function resizeCanvas() {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+      }
+
+      function seedParticles() {
+        particles.length = 0;
+        for (let i = 0; i < particleCount; i += 1) {
+          particles.push({
+            x: Math.random() * canvas.width,
+            y: Math.random() * canvas.height,
+            vx: (Math.random() - 0.5) * 0.7,
+            vy: (Math.random() - 0.5) * 0.7,
+            r: 1 + Math.random() * 2,
+          });
+        }
+      }
+
+      function draw() {
+        context.clearRect(0, 0, canvas.width, canvas.height);
+        for (let i = 0; i < particles.length; i += 1) {
+          const p = particles[i];
+          p.x += p.vx;
+          p.y += p.vy;
+          if (p.x < 0 || p.x > canvas.width) p.vx *= -1;
+          if (p.y < 0 || p.y > canvas.height) p.vy *= -1;
+
+          context.beginPath();
+          context.fillStyle = "rgba(102,163,255,0.8)";
+          context.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+          context.fill();
+
+          for (let j = i + 1; j < particles.length; j += 1) {
+            const q = particles[j];
+            const distance = Math.hypot(p.x - q.x, p.y - q.y);
+            if (distance < 140) {
+              context.beginPath();
+              context.strokeStyle = `rgba(82,255,217,${0.16 - distance / 1000})`;
+              context.lineWidth = 1;
+              context.moveTo(p.x, p.y);
+              context.lineTo(q.x, q.y);
+              context.stroke();
+            }
+          }
+        }
+        window.requestAnimationFrame(draw);
+      }
+
+      window.addEventListener("resize", () => {
+        resizeCanvas();
+        seedParticles();
+      });
+
+      resizeCanvas();
+      seedParticles();
+      draw();
+    </script>
+  </body>
+</html>
