@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The Lab | Interactive Research Console | Swadeshi AI Private Limited</title>
+    <meta
+      name="description"
+      content="Experimental interactive research console for Swadeshi AI. Inspect demonstration telemetry across agentic runtimes, security surfaces, and analog computing."
+    />
+    <link rel="canonical" href="https://www.swadeshi.dev/lab/" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" type="image/jpeg" href="/logo.JPG" />
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body style="background-color: var(--bg);">
+    <!-- Top Telemetry Bar -->
+    <aside class="telemetry-bar">
+      <div class="container telemetry-inner">
+        <div class="telemetry-group">
+          <span class="telemetry-item">
+            <span class="pulse-dot"></span>
+            <span>SWADESHI AI // EXPERIMENTAL CONSOLE (FULLSCREEN VIEW)</span>
+          </span>
+          <span class="telemetry-item mono">// MODE: VIRTUAL INSTRUMENTATION</span>
+        </div>
+        <div class="telemetry-group">
+          <span class="telemetry-item mono" id="telem-coords">PTR: [X:0000 Y:0000]</span>
+          <span class="telemetry-item mono" id="telem-clock">00:00:00 UTC</span>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Header -->
+    <header class="site-header">
+      <div class="container nav-shell">
+        <a class="brand" href="/" aria-label="Swadeshi AI Home">
+          <div class="brand-symbol-wrap">
+            <img src="/logo.JPG" alt="Swadeshi AI emblem" class="brand-logo-img" />
+          </div>
+          <div class="brand-text-group">
+            <span class="brand-title">Swadeshi AI</span>
+            <span class="brand-sub">The Lab Console</span>
+          </div>
+        </a>
+
+        <nav class="desktop-nav" aria-label="Primary Navigation">
+          <a class="nav-link" href="/">Home</a>
+          <a class="nav-link" href="/research/">Research</a>
+          <a class="nav-link" href="/technology/">Technology</a>
+          <a class="nav-link" href="/cybersecurity/">Cybersecurity</a>
+          <a class="nav-link" href="/semiconductor/">Semiconductor Lab</a>
+          <a class="nav-link" href="/agents/">AI Agents</a>
+          <a class="nav-link" href="/internships/">Internships</a>
+          <a class="nav-link" href="/about/">About</a>
+          <a class="nav-link" href="/contact/">Contact</a>
+          <a href="/" class="btn btn-secondary btn-sm mono">&larr; Return Home</a>
+        </nav>
+
+        <div class="header-controls">
+          <button class="btn-icon theme-toggle" type="button" aria-label="Toggle theme">
+            <svg viewBox="0 0 24 24"><path d="M12 3a9 9 0 1 0 9 9c0-.46-.04-.92-.1-1.36a5.389 5.389 0 0 1-4.4 2.26 5.403 5.403 0 0 1-3.14-9.8c-.44-.06-.9-.1-1.36-.1z" /></svg>
+          </button>
+          <button class="btn-icon menu-toggle" type="button" aria-label="Menu" aria-expanded="false">
+            <span></span><span></span>
+          </button>
+        </div>
+      </div>
+
+      <nav id="mobile-nav-drawer" class="mobile-nav-drawer">
+        <ul class="mobile-nav-list">
+          <li><a href="/"><span>Home</span> <span class="mono">00</span></a></li>
+          <li><a href="/research/"><span>Research Programs</span> <span class="mono">01</span></a></li>
+          <li><a href="/technology/"><span>Technology Ecosystem</span> <span class="mono">02</span></a></li>
+          <li><a href="/cybersecurity/"><span>Cybersecurity Lab</span> <span class="mono">03</span></a></li>
+          <li><a href="/semiconductor/"><span>Semiconductor Lab</span> <span class="mono">04</span></a></li>
+          <li><a href="/agents/"><span>Agentic AI Systems</span> <span class="mono">05</span></a></li>
+          <li><a href="/internships/"><span>Internship Portal</span> <span class="mono">06</span></a></li>
+          <li><a href="/about/"><span>About Laboratory</span> <span class="mono">07</span></a></li>
+          <li><a href="/contact/"><span>Contact &amp; Inquiries</span> <span class="mono">08</span></a></li>
+          <li><a href="/" class="btn btn-primary"><span>RETURN TO HOME</span></a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main id="main-content">
+      <section class="section" style="padding-top: 3rem;">
+        <div class="container">
+          <div class="section-header-split" style="margin-bottom: 2rem;">
+            <div>
+              <p class="kicker">INTERACTIVE INSTRUMENT // DEMO TELEMETRY</p>
+              <h1>The Research Console</h1>
+              <p class="section-intro" style="margin-bottom: 0;">
+                Direct interface to our experimental systems. Explore active telemetry across autonomous agent runtimes,
+                defensive surface matrices, Model Context Protocol routers, and analog signal dynamics.
+              </p>
+            </div>
+            <div class="mono" style="padding: 0.6rem 1rem; background: var(--bg-alt); border: 1px solid var(--line); border-radius: 4px; font-size: 0.75rem;">
+              // NOTICE: ALL VALUES ARE DEMONSTRATION-ONLY TELEMETRY
+            </div>
+          </div>
+
+          <!-- Main Interactive Console Grid -->
+          <div class="lab-console-wrapper">
+            <div class="console-topbar">
+              <span class="mono">SWADESHI RESEARCH RUNTIME &bull; VERSION 2.4-EXPERIMENTAL</span>
+              <span class="mono">SYSTEM LATENCY: 14ms &bull; CLUSTER HEALTH: 100%</span>
+            </div>
+
+            <div class="console-body">
+              <!-- Left Sidebar: Modules -->
+              <aside class="console-sidebar" role="tablist" aria-label="Console Modules">
+                <button type="button" class="console-module-btn active" role="tab" aria-selected="true">
+                  <span class="mod-id">MODULE 01</span>
+                  <span class="mod-name">Agent Planning Mesh</span>
+                </button>
+                <button type="button" class="console-module-btn" role="tab" aria-selected="false">
+                  <span class="mod-id">MODULE 02</span>
+                  <span class="mod-name">Security Surface</span>
+                </button>
+                <button type="button" class="console-module-btn" role="tab" aria-selected="false">
+                  <span class="mod-id">MODULE 03</span>
+                  <span class="mod-name">MCP Tool Router</span>
+                </button>
+                <button type="button" class="console-module-btn" role="tab" aria-selected="false">
+                  <span class="mod-id">MODULE 04</span>
+                  <span class="mod-name">Analog Silicon</span>
+                </button>
+              </aside>
+
+              <!-- Center Display Stage -->
+              <div class="console-display">
+                <div class="console-display-header">
+                  <h3 id="console-display-title">Agent Runtime &amp; Planning Mesh</h3>
+                  <p id="console-display-desc">
+                    Real-time inspection of active agent task execution, tool dispatch latency, and semantic graph memory retention across nodes.
+                  </p>
+                </div>
+
+                <div class="console-visual-stage" id="console-stage-content">
+                  <!-- Dynamic content injected by script.js -->
+                </div>
+
+                <div class="mono" style="font-size: 0.72rem; color: var(--text-faint); margin-top: 1rem;">
+                  // DIAGNOSTIC STATE: STABLE &bull; MEMORY ACCESS: DETERMINISTIC
+                </div>
+              </div>
+
+              <!-- Right Metadata Telemetry -->
+              <aside class="console-telemetry-side">
+                <div class="telem-block">
+                  <div class="telem-label">Selected Node ID</div>
+                  <div class="telem-val" id="console-telem-node">SWA-AG-NODE-01</div>
+                </div>
+                <div class="telem-block">
+                  <div class="telem-label">Operational State</div>
+                  <div class="telem-val" id="console-telem-status" style="color: var(--accent-mint);">ONLINE / NOMINAL</div>
+                </div>
+                <div class="telem-block">
+                  <div class="telem-label">Recorded Iterations</div>
+                  <div class="telem-val" id="console-telem-iter">1,842</div>
+                </div>
+                <div class="telem-block">
+                  <div class="telem-label">Observed Latency</div>
+                  <div class="telem-val" id="console-telem-latency">14.2 ms</div>
+                </div>
+                <div class="telem-block" style="border-bottom: none;">
+                  <div class="telem-label">Protocol Channel</div>
+                  <div class="telem-val mono">JSON-RPC / MCP v1.0</div>
+                </div>
+              </aside>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+      <div class="container">
+        <div class="footer-top">
+          <div class="footer-brand-col">
+            <div class="footer-logo-wrap">
+              <img src="/logo.JPG" alt="Swadeshi AI mark" style="width: 100%; height: 100%; object-fit: contain;" />
+            </div>
+            <div class="footer-statement">RESEARCHING WHAT COMES NEXT.</div>
+            <p style="font-size: 0.88rem; color: var(--text-muted);">
+              Swadeshi AI Private Limited &bull; Established 9 March 2026.
+            </p>
+          </div>
+          <div class="footer-links-col">
+            <h5>Research</h5>
+            <ul class="footer-links-list">
+              <li><a href="/research/">Programs</a></li>
+              <li><a href="/agents/">Agentic AI</a></li>
+              <li><a href="/cybersecurity/">Cybersecurity</a></li>
+              <li><a href="/semiconductor/">Semiconductor Lab</a></li>
+            </ul>
+          </div>
+          <div class="footer-links-col">
+            <h5>Laboratory</h5>
+            <ul class="footer-links-list">
+              <li><a href="/internships/">Internships 2026</a></li>
+              <li><a href="/about/">About Us</a></li>
+              <li><a href="/contact/">Contact</a></li>
+            </ul>
+          </div>
+          <div class="footer-links-col">
+            <h5>Contact</h5>
+            <ul class="footer-links-list mono" style="font-size: 0.78rem;">
+              <li>internship@swadeshi.dev</li>
+              <li>www.swadeshi.dev</li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <div>&copy; <span id="curr-year">2026</span> Swadeshi AI Private Limited. All rights reserved.</div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="/script.js"></script>
+  </body>
+</html>

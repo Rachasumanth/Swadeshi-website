@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Agentic AI Research | Swadeshi AI Private Limited</title>
+    <meta
+      name="description"
+      content="Investigating autonomous planning runtimes, sandboxed tool-calling via Model Context Protocol (MCP), and multi-agent coordination systems."
+    />
+    <link rel="canonical" href="https://www.swadeshi.dev/agents/" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" type="image/jpeg" href="/logo.JPG" />
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <!-- Top Telemetry Bar -->
+    <aside class="telemetry-bar">
+      <div class="container telemetry-inner">
+        <div class="telemetry-group">
+          <span class="telemetry-item">
+            <span class="pulse-dot"></span>
+            <span>SWADESHI AI // AGENTIC SYSTEMS DIVISION</span>
+          </span>
+          <span class="telemetry-item mono">// ARCHITECTURE: CLOSED-LOOP OBSERVATION RUNTIME</span>
+        </div>
+        <div class="telemetry-group">
+          <span class="telemetry-item mono" id="telem-coords">PTR: [X:0000 Y:0000]</span>
+          <span class="telemetry-item mono" id="telem-clock">00:00:00 UTC</span>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Header -->
+    <header class="site-header">
+      <div class="container nav-shell">
+        <a class="brand" href="/" aria-label="Swadeshi AI Home">
+          <div class="brand-symbol-wrap">
+            <img src="/logo.JPG" alt="Swadeshi AI emblem" class="brand-logo-img" />
+          </div>
+          <div class="brand-text-group">
+            <span class="brand-title">Swadeshi AI</span>
+            <span class="brand-sub">Research Laboratory</span>
+          </div>
+        </a>
+
+        <nav class="desktop-nav" aria-label="Primary Navigation">
+          <a class="nav-link" href="/">Home</a>
+          <a class="nav-link" href="/research/">Research</a>
+          <a class="nav-link" href="/technology/">Technology</a>
+          <a class="nav-link" href="/cybersecurity/">Cybersecurity</a>
+          <a class="nav-link" href="/semiconductor/">Semiconductor Lab</a>
+          <a class="nav-link active" href="/agents/">AI Agents</a>
+          <a class="nav-link" href="/internships/">Internships</a>
+          <a class="nav-link" href="/about/">About</a>
+          <a class="nav-link" href="/contact/">Contact</a>
+          <a href="/lab/" class="nav-lab-btn">
+            <span class="pulse-dot" style="width: 5px; height: 5px;"></span>
+            <span>LAB</span>
+          </a>
+        </nav>
+
+        <div class="header-controls">
+          <button class="btn-icon theme-toggle" type="button" aria-label="Toggle theme">
+            <svg viewBox="0 0 24 24"><path d="M12 3a9 9 0 1 0 9 9c0-.46-.04-.92-.1-1.36a5.389 5.389 0 0 1-4.4 2.26 5.403 5.403 0 0 1-3.14-9.8c-.44-.06-.9-.1-1.36-.1z" /></svg>
+          </button>
+          <button class="btn-icon menu-toggle" type="button" aria-label="Menu" aria-expanded="false">
+            <span></span><span></span>
+          </button>
+        </div>
+      </div>
+
+      <nav id="mobile-nav-drawer" class="mobile-nav-drawer">
+        <ul class="mobile-nav-list">
+          <li><a href="/"><span>Home</span> <span class="mono">00</span></a></li>
+          <li><a href="/research/"><span>Research Programs</span> <span class="mono">01</span></a></li>
+          <li><a href="/technology/"><span>Technology Ecosystem</span> <span class="mono">02</span></a></li>
+          <li><a href="/cybersecurity/"><span>Cybersecurity Lab</span> <span class="mono">03</span></a></li>
+          <li><a href="/semiconductor/"><span>Semiconductor Lab</span> <span class="mono">04</span></a></li>
+          <li><a href="/agents/"><span>Agentic AI Systems</span> <span class="mono">05</span></a></li>
+          <li><a href="/internships/"><span>Internship Portal</span> <span class="mono">06</span></a></li>
+          <li><a href="/about/"><span>About Laboratory</span> <span class="mono">07</span></a></li>
+          <li><a href="/contact/"><span>Contact &amp; Inquiries</span> <span class="mono">08</span></a></li>
+          <li><a href="/lab/" class="btn btn-accent" style="color: #ffffff;"><span>ENTER THE LAB CONSOLE</span></a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main id="main-content">
+      <section class="section">
+        <div class="container">
+          <p class="kicker">RESEARCH // 01 &bull; AGENTIC SYSTEMS</p>
+          <h1 style="margin-bottom: 1.25rem;">Agentic AI Systems</h1>
+          <p class="section-intro">
+            We build and investigate intelligent systems that can reason, formulate plans, interact with digital tools, 
+            observe runtime outputs, and iteratively converge on complex engineering solutions.
+          </p>
+
+          <!-- Interactive System Diagram -->
+          <div class="corner-frame" style="margin-top: 2rem;">
+            <div class="section-header-split" style="margin-bottom: 1.5rem;">
+              <div>
+                <span class="mono" style="font-size: 0.76rem; color: var(--accent);">INTERACTIVE SYSTEM DIAGRAM</span>
+                <h3>Deterministic Execution Loop</h3>
+              </div>
+              <div>
+                <button type="button" id="agent-autorun-btn" class="btn btn-primary btn-mono btn-sm">
+                  Run Autonomous Cycle
+                </button>
+              </div>
+            </div>
+
+            <!-- 7-Stage Flow Stepper -->
+            <div class="agent-flow-stepper" role="tablist" aria-label="Agentic AI execution phases">
+              <button type="button" class="agent-step-node active" role="tab" aria-selected="true">
+                <div class="agent-step-num">STAGE 01</div>
+                <div class="agent-step-title">INPUT</div>
+              </button>
+              <button type="button" class="agent-step-node" role="tab" aria-selected="false">
+                <div class="agent-step-num">STAGE 02</div>
+                <div class="agent-step-title">REASONING</div>
+              </button>
+              <button type="button" class="agent-step-node" role="tab" aria-selected="false">
+                <div class="agent-step-num">STAGE 03</div>
+                <div class="agent-step-title">PLANNING</div>
+              </button>
+              <button type="button" class="agent-step-node" role="tab" aria-selected="false">
+                <div class="agent-step-num">STAGE 04</div>
+                <div class="agent-step-title">TOOLS</div>
+              </button>
+              <button type="button" class="agent-step-node" role="tab" aria-selected="false">
+                <div class="agent-step-num">STAGE 05</div>
+                <div class="agent-step-title">EXECUTION</div>
+              </button>
+              <button type="button" class="agent-step-node" role="tab" aria-selected="false">
+                <div class="agent-step-num">STAGE 06</div>
+                <div class="agent-step-title">OBSERVE</div>
+              </button>
+              <button type="button" class="agent-step-node" role="tab" aria-selected="false">
+                <div class="agent-step-num">STAGE 07</div>
+                <div class="agent-step-title">ITERATE</div>
+              </button>
+            </div>
+
+            <!-- Inspector Console -->
+            <div class="agent-console-box">
+              <div class="agent-console-left">
+                <h4 id="agent-step-title-display">01 — TASK INPUT &amp; CONTEXT PARSING</h4>
+                <p id="agent-step-desc-display">
+                  Autonomous agent ingests natural-language goals, parses ambient environment constraints, and retrieves context from the Model Context Protocol (MCP) host.
+                </p>
+                <div class="mono" style="font-size: 0.76rem; color: var(--text-faint); margin-top: 1rem;">
+                  <span>// PROTOCOL: MCP-v1.0</span> &bull; <span>// ISOLATION: SANDBOXED</span>
+                </div>
+              </div>
+              <div class="agent-console-code">
+                <pre id="agent-step-code-display">// SYSTEM: MCP Context Ingestion
+{
+  "session_id": "swa-ag-892",
+  "objective": "Design robust state machine for low-power sensor bus",
+  "context_buffers": ["registers.json", "timing_constraints.sdc"],
+  "permission_level": "read_write_sandboxed"
+}</pre>
+              </div>
+            </div>
+          </div>
+
+          <!-- Deep Technical Sections -->
+          <div style="margin-top: 4.5rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem;">
+            <div class="topic-box" style="padding: 1.5rem;">
+              <span class="mono" style="font-size: 0.72rem; color: var(--accent);">PILLAR 01</span>
+              <h4 style="font-size: 1.15rem; margin: 0.4rem 0;">Agent Architecture</h4>
+              <p style="font-size: 0.9rem; color: var(--text-secondary);">
+                Decoupled control harnesses that isolate the planner from model weights. Uses typed JSON schema contracts to enforce invariant validation.
+              </p>
+            </div>
+
+            <div class="topic-box" style="padding: 1.5rem;">
+              <span class="mono" style="font-size: 0.72rem; color: var(--accent);">PILLAR 02</span>
+              <h4 style="font-size: 1.15rem; margin: 0.4rem 0;">Tool Execution</h4>
+              <p style="font-size: 0.9rem; color: var(--text-secondary);">
+                Standardized integration with compilers, linters, simulators, and file trees via the Model Context Protocol (MCP) under zero-trust boundaries.
+              </p>
+            </div>
+
+            <div class="topic-box" style="padding: 1.5rem;">
+              <span class="mono" style="font-size: 0.72rem; color: var(--accent);">PILLAR 03</span>
+              <h4 style="font-size: 1.15rem; margin: 0.4rem 0;">Memory Systems</h4>
+              <p style="font-size: 0.9rem; color: var(--text-secondary);">
+                Hierarchical memory: instantaneous working scratchpads, episodic session buffers, and persistent vector-indexed technical knowledge.
+              </p>
+            </div>
+
+            <div class="topic-box" style="padding: 1.5rem;">
+              <span class="mono" style="font-size: 0.72rem; color: var(--accent);">PILLAR 04</span>
+              <h4 style="font-size: 1.15rem; margin: 0.4rem 0;">Context Engineering</h4>
+              <p style="font-size: 0.9rem; color: var(--text-secondary);">
+                Adaptive window pruning, KV cache optimizations, and relevance filtering to prevent attention degradation over 200,000+ token trajectories.
+              </p>
+            </div>
+
+            <div class="topic-box" style="padding: 1.5rem;">
+              <span class="mono" style="font-size: 0.72rem; color: var(--accent);">PILLAR 05</span>
+              <h4 style="font-size: 1.15rem; margin: 0.4rem 0;">Deterministic Planning</h4>
+              <p style="font-size: 0.9rem; color: var(--text-secondary);">
+                Branching Monte Carlo tree search and linear fallback schedules that calculate task success probability prior to executing side-effects.
+              </p>
+            </div>
+
+            <div class="topic-box" style="padding: 1.5rem;">
+              <span class="mono" style="font-size: 0.72rem; color: var(--accent);">PILLAR 06</span>
+              <h4 style="font-size: 1.15rem; margin: 0.4rem 0;">Feedback Loops</h4>
+              <p style="font-size: 0.9rem; color: var(--text-secondary);">
+                Parsing compiler error diagnostics and runtime stack traces back into intermediate reasoning tokens for rapid autonomous repair.
+              </p>
+            </div>
+
+            <div class="topic-box" style="padding: 1.5rem;">
+              <span class="mono" style="font-size: 0.72rem; color: var(--accent);">PILLAR 07</span>
+              <h4 style="font-size: 1.15rem; margin: 0.4rem 0;">Automated Evaluation</h4>
+              <p style="font-size: 0.9rem; color: var(--text-secondary);">
+                Deterministic regression suites testing agent convergence speed, token overhead, tool-calling precision, and safety compliance.
+              </p>
+            </div>
+
+            <div class="topic-box" style="padding: 1.5rem;">
+              <span class="mono" style="font-size: 0.72rem; color: var(--accent);">PILLAR 08</span>
+              <h4 style="font-size: 1.15rem; margin: 0.4rem 0;">Multi-Agent Systems</h4>
+              <p style="font-size: 0.9rem; color: var(--text-secondary);">
+                Role-specialized swarms (Researcher, Architect, Tester, Verifier) coordinating through structured protocols and shared telemetry.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+      <div class="container">
+        <div class="footer-top">
+          <div class="footer-brand-col">
+            <div class="footer-logo-wrap">
+              <img src="/logo.JPG" alt="Swadeshi AI mark" style="width: 100%; height: 100%; object-fit: contain;" />
+            </div>
+            <div class="footer-statement">RESEARCHING WHAT COMES NEXT.</div>
+            <p style="font-size: 0.88rem; color: var(--text-muted);">
+              Swadeshi AI Private Limited &bull; Established 9 March 2026.
+            </p>
+          </div>
+          <div class="footer-links-col">
+            <h5>Research</h5>
+            <ul class="footer-links-list">
+              <li><a href="/research/">Programs</a></li>
+              <li><a href="/cybersecurity/">Cybersecurity</a></li>
+              <li><a href="/semiconductor/">Semiconductor Lab</a></li>
+              <li><a href="/technology/">Technology</a></li>
+            </ul>
+          </div>
+          <div class="footer-links-col">
+            <h5>Laboratory</h5>
+            <ul class="footer-links-list">
+              <li><a href="/lab/">The Lab Console</a></li>
+              <li><a href="/internships/">Internships 2026</a></li>
+              <li><a href="/about/">About Us</a></li>
+              <li><a href="/contact/">Contact</a></li>
+            </ul>
+          </div>
+          <div class="footer-links-col">
+            <h5>Contact</h5>
+            <ul class="footer-links-list mono" style="font-size: 0.78rem;">
+              <li>internship@swadeshi.dev</li>
+              <li>www.swadeshi.dev</li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <div>&copy; <span id="curr-year">2026</span> Swadeshi AI Private Limited. All rights reserved.</div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="/script.js"></script>
+  </body>
+</html>

@@ -3,17 +3,84 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>404 | Swadeshi AI</title>
+    <title>404 // Target Coordinate Not Found | Swadeshi AI</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" type="image/jpeg" href="/logo.JPG" />
     <link rel="stylesheet" href="/styles.css" />
   </head>
   <body>
-    <main class="section">
+    <!-- Top Telemetry Bar -->
+    <aside class="telemetry-bar">
+      <div class="container telemetry-inner">
+        <div class="telemetry-group">
+          <span class="telemetry-item">
+            <span class="pulse-dot" style="background-color: var(--accent-alert);"></span>
+            <span>SYSTEM STATUS: 404 // ROUTE DISCONNECTED</span>
+          </span>
+          <span class="telemetry-item mono">// TARGET COORDINATE NOT FOUND</span>
+        </div>
+        <div class="telemetry-group">
+          <span class="telemetry-item mono" id="telem-coords">PTR: [X:0000 Y:0000]</span>
+          <span class="telemetry-item mono" id="telem-clock">00:00:00 UTC</span>
+        </div>
+      </div>
+    </aside>
+
+    <header class="site-header">
+      <div class="container nav-shell">
+        <a class="brand" href="/" aria-label="Swadeshi AI Home">
+          <div class="brand-symbol-wrap">
+            <img src="/logo.JPG" alt="Swadeshi AI emblem" class="brand-logo-img" />
+          </div>
+          <div class="brand-text-group">
+            <span class="brand-title">Swadeshi AI</span>
+            <span class="brand-sub">Research Laboratory</span>
+          </div>
+        </a>
+        <div class="header-controls">
+          <button class="btn-icon theme-toggle" type="button" aria-label="Toggle theme">
+            <svg viewBox="0 0 24 24"><path d="M12 3a9 9 0 1 0 9 9c0-.46-.04-.92-.1-1.36a5.389 5.389 0 0 1-4.4 2.26 5.403 5.403 0 0 1-3.14-9.8c-.44-.06-.9-.1-1.36-.1z" /></svg>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main id="main-content" style="display: flex; align-items: center; min-height: 70vh;">
       <div class="container">
-        <p class="kicker mono">ERROR / 404</p>
-        <h1>Research node not found.</h1>
-        <p>This page does not exist or has moved to another research path.</p>
-        <a class="btn btn-primary" href="/">Return to Swadeshi AI</a>
+        <div class="corner-frame" style="max-width: 680px; margin: 0 auto; text-align: center; padding: clamp(2rem, 5vw, 4rem);">
+          <div style="width: 80px; height: 80px; margin: 0 auto 1.5rem; background: var(--surface); border: 1px solid var(--line-strong); padding: 6px; border-radius: var(--radius-xs);">
+            <img src="/logo.JPG" alt="Swadeshi AI logo" style="width: 100%; height: 100%; object-fit: contain; animation: pulseAnimation 2.5s infinite ease-in-out;" />
+          </div>
+
+          <p class="kicker" style="color: var(--accent-alert);">SYSTEM STATUS: 404</p>
+          <h1 style="font-size: clamp(1.8rem, 4vw, 2.6rem); margin-bottom: 1rem;">Target Coordinate Not Found</h1>
+          <p style="color: var(--text-secondary); margin-bottom: 2rem;">
+            The requested research path does not exist in our system registry, or the node has been relocated during architecture re-indexing.
+          </p>
+
+          <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
+            <a href="/" class="btn btn-primary">Return Home</a>
+            <a href="/lab/" class="btn btn-secondary">Enter The Lab</a>
+          </div>
+
+          <div class="mono" style="font-size: 0.72rem; color: var(--text-faint); margin-top: 2.5rem; border-top: 1px solid var(--line-light); padding-top: 1.25rem;">
+            // ERR_CODE: SWA-ERR-404-UNRESOLVED-ROUTE &bull; REGISTRY: SWADESHI.DEV
+          </div>
+        </div>
       </div>
     </main>
+
+    <footer class="site-footer" style="padding: 2rem 0;">
+      <div class="container" style="text-align: center; font-size: 0.8rem; color: var(--text-muted);">
+        &copy; <span id="curr-year">2026</span> Swadeshi AI Private Limited.
+      </div>
+    </footer>
+
+    <script src="/script.js"></script>
   </body>
 </html>
