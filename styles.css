@@ -158,35 +158,14 @@ p {
   font-weight: 700;
 }
 
-.brand-mark,
-.footer-logo {
-  width: 1.7rem;
+.brand-logo {
+  width: 1.95rem;
   aspect-ratio: 1;
-  border: 2px solid var(--text);
-  position: relative;
-}
-
-.brand-mark::before,
-.footer-logo::before {
-  content: "";
-  position: absolute;
-  width: 55%;
-  height: 2px;
-  background: var(--text);
-  top: 42%;
-  left: 22%;
-  transform: rotate(-35deg);
-}
-
-.brand-mark::after,
-.footer-logo::after {
-  content: "";
-  position: absolute;
-  width: 2px;
-  height: 100%;
-  background: var(--text);
-  left: 50%;
-  top: 0;
+  object-fit: contain;
+  border-radius: 0.3rem;
+  background: #ffffff;
+  border: 1px solid var(--line);
+  padding: 0.16rem;
 }
 
 .desktop-nav {
@@ -506,6 +485,22 @@ button {
   padding: 1rem;
 }
 
+.about-banner {
+  margin: 1.15rem 0 1.35rem;
+  border: 1px solid var(--line);
+  border-radius: 0.85rem;
+  overflow: hidden;
+  background: var(--surface);
+  box-shadow: var(--shadow);
+}
+
+.about-banner-img {
+  width: 100%;
+  display: block;
+  aspect-ratio: 16 / 6;
+  object-fit: cover;
+}
+
 .lab-shell {
   display: grid;
   grid-template-columns: 220px 1fr 230px;
@@ -630,8 +625,13 @@ textarea {
   flex-wrap: wrap;
 }
 
-.footer-logo {
-  width: 3rem;
+.footer-logo-img {
+  width: clamp(3rem, 6vw, 4.3rem);
+  display: block;
+  border-radius: 0.35rem;
+  background: #ffffff;
+  border: 1px solid var(--line);
+  padding: 0.25rem;
 }
 
 .footer-statement {
