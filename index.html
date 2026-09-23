@@ -1,104 +1,335 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Swadeshi | Tech Aesthetic</title>
+    <title>Swadeshi AI Private Limited | Research Laboratory for Intelligent Systems</title>
+    <meta
+      name="description"
+      content="Swadeshi AI Private Limited is a research-oriented technology laboratory exploring agentic AI, cybersecurity, AI systems, and future semiconductor research."
+    />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://www.swadeshi.dev/" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Swadeshi AI Private Limited" />
+    <meta
+      property="og:description"
+      content="Researching intelligent systems, cybersecurity, and deep-tech engineering at Swadeshi AI."
+    />
+    <meta property="og:url" content="https://www.swadeshi.dev/" />
+    <meta property="og:site_name" content="Swadeshi AI Private Limited" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Swadeshi AI Private Limited" />
+    <meta
+      name="twitter:description"
+      content="A research-driven laboratory building advanced AI systems and future semiconductor research programs."
+    />
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap"
       rel="stylesheet"
     />
+    <link rel="icon" type="image/jpeg" href="/logo.JPG" sizes="any" />
     <link rel="stylesheet" href="/styles.css" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Swadeshi AI Private Limited",
+        "url": "https://www.swadeshi.dev",
+        "foundingDate": "2026-03-09",
+        "email": "internship@swadeshi.dev",
+        "description": "Research-oriented technology laboratory exploring agentic AI, cybersecurity, AI systems, and next-generation electronics.",
+        "sameAs": ["https://www.swadeshi.dev"]
+      }
+    </script>
   </head>
   <body>
-    <header class="site-header">
-      <nav class="container nav">
-        <a class="brand" href="#home">Swadeshi</a>
-        <button class="menu-toggle" aria-label="Toggle menu">☰</button>
-        <ul class="nav-links">
-          <li><a href="#home">Home</a></li>
-          <li><a href="#features">Features</a></li>
-          <li><a href="#showcase">Showcase</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-      </nav>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+
+    <header class="site-header" id="home">
+      <div class="container nav-shell">
+        <a class="brand" href="#home" aria-label="Swadeshi AI homepage">
+          <img src="/logo.JPG" alt="Swadeshi AI logo" class="brand-logo" />
+          <span class="brand-text">Swadeshi AI</span>
+        </a>
+
+        <nav class="desktop-nav" aria-label="Primary">
+          <a href="#research">Research</a>
+          <a href="#technology">Technology</a>
+          <a href="#cybersecurity">Cybersecurity</a>
+          <a href="#semiconductor">Semiconductor Lab</a>
+          <a href="#agents">AI Agents</a>
+          <a href="#internships">Internships</a>
+          <a href="#about">About</a>
+          <a href="#contact">Contact</a>
+          <a class="lab-link" href="#lab">LAB</a>
+        </nav>
+
+        <div class="header-actions">
+          <button class="theme-toggle" type="button" aria-label="Toggle dark mode">
+            <span aria-hidden="true">◐</span>
+          </button>
+          <button class="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-nav">
+            <span></span><span></span>
+          </button>
+        </div>
+      </div>
+
+      <nav id="mobile-nav" class="mobile-nav" aria-label="Mobile"></nav>
     </header>
 
-    <main id="home">
-      <section class="hero container">
-        <div class="hero-copy">
-          <p class="eyebrow">New Visual Direction</p>
-          <h1>Tech-forward. Minimal. Aesthetic.</h1>
-          <p>
-            A fresh Swadeshi website UI that replaces glassmorphism with clean
-            depth, bold gradients, and calm typography.
+    <main id="main-content">
+      <section class="hero section" aria-labelledby="hero-title">
+        <div class="container hero-grid">
+          <div class="hero-copy" data-parallax>
+            <p class="kicker mono">RESEARCH / 001</p>
+            <h1 id="hero-title">Engineering Intelligence Beyond Conventional Systems.</h1>
+            <p>
+              Swadeshi AI Private Limited is a research-oriented laboratory exploring agentic artificial intelligence,
+              cybersecurity systems, and long-horizon semiconductor research.
+            </p>
+            <div class="hero-actions">
+              <a class="btn btn-primary" href="#research">Explore Research</a>
+              <a class="btn btn-secondary" href="#lab">Enter the Lab</a>
+            </div>
+            <ul class="hero-meta mono" aria-label="Research metadata">
+              <li>ESTABLISHED: 2026-03-09</li>
+              <li>MODE: EXPERIMENTAL ENGINEERING</li>
+              <li>FOCUS: INTELLIGENCE + SECURITY + SILICON</li>
+            </ul>
+          </div>
+
+          <div class="hero-visual" aria-hidden="true">
+            <svg viewBox="0 0 500 500" role="img" aria-label="Research geometry visualization">
+              <defs>
+                <linearGradient id="a" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0%" stop-color="var(--accent)" />
+                  <stop offset="100%" stop-color="var(--accent-2)" />
+                </linearGradient>
+              </defs>
+              <g class="grid-lines">
+                <path d="M30 80h440M30 160h440M30 240h440M30 320h440M30 400h440" />
+                <path d="M80 30v440M170 30v440M260 30v440M350 30v440M440 30v440" />
+              </g>
+              <g class="logo-geometry">
+                <path d="M120 120h120v60h-60v60h120v60H120z" />
+                <path d="M300 120h80l40 40v220h-80l-40-40V120z" />
+                <path d="M180 180l120 120" />
+                <circle cx="300" cy="300" r="22" />
+              </g>
+              <g class="orbit-nodes">
+                <circle cx="170" cy="110" r="6" />
+                <circle cx="410" cy="180" r="6" />
+                <circle cx="350" cy="390" r="6" />
+                <circle cx="120" cy="340" r="6" />
+              </g>
+            </svg>
+          </div>
+        </div>
+      </section>
+
+      <section id="research" class="section" aria-labelledby="research-title">
+        <div class="container">
+          <p class="kicker mono">RESEARCH / CORE PROGRAMS</p>
+          <h2 id="research-title">Research Programs</h2>
+          <div class="research-grid" id="research-grid"></div>
+        </div>
+      </section>
+
+      <section id="agents" class="section section-panel" aria-labelledby="agents-title">
+        <div class="container">
+          <p class="kicker mono">AGENTIC AI / SYSTEM FLOW</p>
+          <h2 id="agents-title">Agentic AI Research</h2>
+          <p class="section-intro">Visual model of how autonomous systems operate within controlled tool-calling environments.</p>
+          <div class="flow-diagram" role="img" aria-label="Agentic AI flow diagram">
+            <div>INPUT</div><div>REASONING</div><div>PLANNING</div><div>TOOLS</div><div>EXECUTION</div><div>OBSERVATION</div><div>ITERATION</div>
+          </div>
+          <div class="mini-grid tags" id="agent-topics"></div>
+        </div>
+      </section>
+
+      <section id="cybersecurity" class="section" aria-labelledby="cyber-title">
+        <div class="container">
+          <p class="kicker mono">CYBERSECURITY / AUTHORIZED RESEARCH</p>
+          <h2 id="cyber-title">Cybersecurity Research Environment</h2>
+          <div class="lifecycle" role="img" aria-label="Security research lifecycle">
+            <span>RECONNAISSANCE</span><span>ARCHITECTURE DISCOVERY</span><span>ATTACK SURFACE</span><span>HYPOTHESIS</span><span>VALIDATION</span><span>RESPONSIBLE DISCLOSURE</span>
+          </div>
+          <p class="note mono">All security activities are framed as defensive research and authorized testing.</p>
+        </div>
+      </section>
+
+      <section id="semiconductor" class="section section-panel" aria-labelledby="semi-title">
+        <div class="container">
+          <p class="kicker mono">SEMICONDUCTOR / R&D DIRECTION</p>
+          <h2 id="semi-title">From Intelligence in Software to Intelligence in Silicon.</h2>
+          <p class="section-intro">Long-term program focused on analog electronics, transistor-level intuition, signal flow, and semiconductor design research.</p>
+          <div class="transition-graphic" aria-hidden="true">
+            <div class="graph-stage"></div>
+            <div class="circuit-stage"></div>
+          </div>
+        </div>
+      </section>
+
+      <section id="technology" class="section" aria-labelledby="tech-title">
+        <div class="container">
+          <p class="kicker mono">TECHNOLOGY / ECOSYSTEM</p>
+          <h2 id="tech-title">Technology Ecosystem</h2>
+          <div class="tech-grid" id="tech-grid"></div>
+        </div>
+      </section>
+
+      <section id="timeline" class="section" aria-labelledby="timeline-title">
+        <div class="container">
+          <p class="kicker mono">RESEARCH / TIMELINE</p>
+          <h2 id="timeline-title">Research Trajectory</h2>
+          <div class="timeline" id="timeline"></div>
+        </div>
+      </section>
+
+      <section id="lab" class="section section-panel" aria-labelledby="lab-title">
+        <div class="container">
+          <p class="kicker mono">THE LAB / RESEARCH CONSOLE</p>
+          <h2 id="lab-title">Interactive Research Console</h2>
+          <div class="lab-shell">
+            <aside class="lab-modules" id="lab-modules" aria-label="Research modules"></aside>
+            <div class="lab-visual" aria-live="polite">
+              <h3 id="lab-module-title">System Status</h3>
+              <p id="lab-module-copy">Select a module to inspect demo telemetry and metadata.</p>
+              <div class="visual-grid" aria-hidden="true"></div>
+            </div>
+            <aside class="lab-meta mono" id="lab-meta"></aside>
+          </div>
+          <p class="note mono">Telemetry shown in this console is demonstration-only and not production measurement.</p>
+        </div>
+      </section>
+
+      <section id="internships" class="section" aria-labelledby="internship-title">
+        <div class="container">
+          <p class="kicker mono">INTERNSHIP / 6-MONTH HYBRID PROGRAM</p>
+          <h2 id="internship-title">Internship Program</h2>
+          <div class="internship-layout">
+            <div class="internship-overview">
+              <ul>
+                <li><strong>Duration:</strong> 6 months</li>
+                <li><strong>Mode:</strong> Hybrid (online + offline)</li>
+                <li><strong>Capacity:</strong> 15 interns</li>
+                <li><strong>Student Fee:</strong> None</li>
+                <li><strong>Stipend:</strong> ₹10,000 total (subject to final approval)</li>
+              </ul>
+              <div class="mini-grid tags" id="intern-tracks"></div>
+            </div>
+            <form class="form" id="internship-form" novalidate>
+              <h3>Apply for Internship</h3>
+              <label>Full name<input name="name" required autocomplete="name" /></label>
+              <label>Email<input name="email" type="email" required autocomplete="email" /></label>
+              <label>Phone<input name="phone" type="tel" required autocomplete="tel" /></label>
+              <label>Current institution<input name="institution" required autocomplete="organization" /></label>
+              <label>Primary research interest
+                <select name="track" required>
+                  <option value="">Select track</option>
+                  <option>Agentic AI</option>
+                  <option>Cybersecurity</option>
+                  <option>MCP Tooling</option>
+                  <option>Semiconductor Research</option>
+                </select>
+              </label>
+              <label>Statement of interest<textarea name="statement" rows="4" required></textarea></label>
+              <button class="btn btn-primary" type="submit" data-loading="Applying...">Apply for Internship</button>
+              <p class="form-status" role="status" aria-live="polite"></p>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      <section id="about" class="section section-panel" aria-labelledby="about-title">
+        <div class="container">
+          <p class="kicker mono">ABOUT / RESEARCH LAB</p>
+          <h2 id="about-title">Swadeshi AI is a research-oriented technology laboratory.</h2>
+          <p class="section-intro">
+            We explore the intersection of intelligence, software systems, cybersecurity, and future hardware research with an experimental engineering mindset.
           </p>
-          <div class="hero-actions">
-            <a class="btn btn-primary" href="#showcase">Explore Design</a>
-            <a class="btn btn-secondary" href="#features">See Features</a>
-          </div>
-        </div>
-        <div class="hero-panel">
-          <h2>Design System Snapshot</h2>
-          <ul>
-            <li>Solid layered surfaces</li>
-            <li>High-contrast readable typography</li>
-            <li>Neon accent gradients with subtle shadows</li>
-          </ul>
-        </div>
-      </section>
-
-      <section id="features" class="container section">
-        <h2>Core Highlights</h2>
-        <div class="grid cards">
-          <article class="card">
-            <h3>Clean Depth</h3>
-            <p>Uses elevation and contrast, not blur effects, for hierarchy.</p>
-          </article>
-          <article class="card">
-            <h3>Responsive Layout</h3>
-            <p>Grid system adapts from mobile-first to wide desktops smoothly.</p>
-          </article>
-          <article class="card">
-            <h3>Tech Identity</h3>
-            <p>Sharp edges, coded visuals, and modern gradient accents.</p>
-          </article>
-        </div>
-      </section>
-
-      <section id="showcase" class="container section showcase">
-        <h2>UI Showcase</h2>
-        <div class="showcase-box">
-          <div class="showcase-item">
-            <span>01</span>
-            <h3>Landing Hero</h3>
-            <p>Focused headline, stronger CTA priority, and balanced spacing.</p>
-          </div>
-          <div class="showcase-item">
-            <span>02</span>
-            <h3>Feature Blocks</h3>
-            <p>Simple cards with consistent visual rhythm and readability.</p>
-          </div>
-          <div class="showcase-item">
-            <span>03</span>
-            <h3>Conversion Section</h3>
-            <p>Branded action strip designed to drive contact and onboarding.</p>
+          <figure class="about-banner">
+            <img src="/banner.jpeg" alt="Swadeshi AI research banner" class="about-banner-img" loading="lazy" />
+          </figure>
+          <div class="about-timeline">
+            <article><span class="mono">2026</span><p>Company established.</p></article>
+            <article><span class="mono">CURRENT</span><p>Agentic AI and cybersecurity research programs.</p></article>
+            <article><span class="mono">NEXT</span><p>Advanced AI systems and deeper research infrastructure.</p></article>
+            <article><span class="mono">FUTURE</span><p>Analog computing and semiconductor design research.</p></article>
           </div>
         </div>
       </section>
 
-      <section id="contact" class="container section cta">
-        <h2>Ready to launch the new aesthetic?</h2>
-        <p>Let Swadeshi present a cleaner tech experience for your audience.</p>
-        <a class="btn btn-primary" href="mailto:hello@swadeshi.dev">Get in Touch</a>
+      <section id="archive" class="section" aria-labelledby="archive-title">
+        <div class="container">
+          <p class="kicker mono">RESEARCH ARCHIVE</p>
+          <h2 id="archive-title">Experiments are being documented.</h2>
+          <p class="section-intro">This archive will include research papers, experiments, technical notes, open-source projects, and engineering reports.</p>
+        </div>
+      </section>
+
+      <section id="contact" class="section section-panel" aria-labelledby="contact-title">
+        <div class="container">
+          <p class="kicker mono">CONTACT / COLLABORATION</p>
+          <h2 id="contact-title">Contact Swadeshi AI</h2>
+          <div class="contact-layout">
+            <div>
+              <p><strong>Company:</strong> Swadeshi AI Private Limited</p>
+              <p><strong>Email:</strong> <a href="mailto:internship@swadeshi.dev">internship@swadeshi.dev</a></p>
+              <p><strong>Website:</strong> <a href="https://www.swadeshi.dev">www.swadeshi.dev</a></p>
+              <ul class="mono">
+                <li>GENERAL ENQUIRY</li>
+                <li>RESEARCH COLLABORATION</li>
+                <li>INTERNSHIP</li>
+                <li>TECHNOLOGY PARTNERSHIP</li>
+              </ul>
+            </div>
+            <form class="form" id="contact-form" novalidate>
+              <label>Name<input name="name" required autocomplete="name" /></label>
+              <label>Email<input name="email" type="email" required autocomplete="email" /></label>
+              <label>Purpose
+                <select name="purpose" required>
+                  <option value="">Select purpose</option>
+                  <option>General Enquiry</option>
+                  <option>Research Collaboration</option>
+                  <option>Internship</option>
+                  <option>Technology Partnership</option>
+                </select>
+              </label>
+              <label>Message<textarea name="message" rows="5" required></textarea></label>
+              <button class="btn btn-primary" type="submit" data-loading="Sending...">Send Message</button>
+              <p class="form-status" role="status" aria-live="polite"></p>
+            </form>
+          </div>
+        </div>
       </section>
     </main>
 
     <footer class="site-footer">
-      <div class="container footer-inner">
-        <p>© <span id="year"></span> Swadeshi. All rights reserved.</p>
+      <div class="container footer-layout">
+        <div>
+          <img src="/logo.JPG" alt="Swadeshi AI logo" class="footer-logo-img" />
+          <p class="footer-statement">RESEARCHING WHAT COMES NEXT.</p>
+        </div>
+        <nav aria-label="Footer">
+          <a href="#research">Research</a>
+          <a href="#technology">Technology</a>
+          <a href="#cybersecurity">Cybersecurity</a>
+          <a href="#semiconductor">Semiconductor Lab</a>
+          <a href="#internships">Internships</a>
+          <a href="#about">About</a>
+          <a href="#contact">Contact</a>
+        </nav>
+      </div>
+      <div class="container legal mono">
+        <p>© <span id="year"></span> Swadeshi AI Private Limited. All rights reserved.</p>
       </div>
     </footer>
 
