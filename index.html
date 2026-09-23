@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Swadeshi | Tech Aesthetic</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <nav class="container nav">
+        <a class="brand" href="#home">Swadeshi</a>
+        <button class="menu-toggle" aria-label="Toggle menu">☰</button>
+        <ul class="nav-links">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#features">Features</a></li>
+          <li><a href="#showcase">Showcase</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main id="home">
+      <section class="hero container">
+        <div class="hero-copy">
+          <p class="eyebrow">New Visual Direction</p>
+          <h1>Tech-forward. Minimal. Aesthetic.</h1>
+          <p>
+            A fresh Swadeshi website UI that replaces glassmorphism with clean
+            depth, bold gradients, and calm typography.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#showcase">Explore Design</a>
+            <a class="btn btn-secondary" href="#features">See Features</a>
+          </div>
+        </div>
+        <div class="hero-panel">
+          <h2>Design System Snapshot</h2>
+          <ul>
+            <li>Solid layered surfaces</li>
+            <li>High-contrast readable typography</li>
+            <li>Neon accent gradients with subtle shadows</li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="features" class="container section">
+        <h2>Core Highlights</h2>
+        <div class="grid cards">
+          <article class="card">
+            <h3>Clean Depth</h3>
+            <p>Uses elevation and contrast, not blur effects, for hierarchy.</p>
+          </article>
+          <article class="card">
+            <h3>Responsive Layout</h3>
+            <p>Grid system adapts from mobile-first to wide desktops smoothly.</p>
+          </article>
+          <article class="card">
+            <h3>Tech Identity</h3>
+            <p>Sharp edges, coded visuals, and modern gradient accents.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="showcase" class="container section showcase">
+        <h2>UI Showcase</h2>
+        <div class="showcase-box">
+          <div class="showcase-item">
+            <span>01</span>
+            <h3>Landing Hero</h3>
+            <p>Focused headline, stronger CTA priority, and balanced spacing.</p>
+          </div>
+          <div class="showcase-item">
+            <span>02</span>
+            <h3>Feature Blocks</h3>
+            <p>Simple cards with consistent visual rhythm and readability.</p>
+          </div>
+          <div class="showcase-item">
+            <span>03</span>
+            <h3>Conversion Section</h3>
+            <p>Branded action strip designed to drive contact and onboarding.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" class="container section cta">
+        <h2>Ready to launch the new aesthetic?</h2>
+        <p>Let Swadeshi present a cleaner tech experience for your audience.</p>
+        <a class="btn btn-primary" href="mailto:hello@swadeshi.dev">Get in Touch</a>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <p>© <span id="year"></span> Swadeshi. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <script src="/script.js"></script>
+  </body>
+</html>
